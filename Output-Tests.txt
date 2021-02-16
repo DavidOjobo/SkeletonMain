@@ -1,0 +1,6 @@
+﻿[16/02/2021 16:05:44 Warning] Build failed or it was cancelled.
+[16/02/2021 16:12:47 Warning] Build failed or it was cancelled.
+[16/02/2021 16:13:29 Informational] ------ Discover test started ------
+[16/02/2021 16:13:32 Informational] ========== Discover test finished: 1 found (0:00:02.6192284) ==========
+[16/02/2021 16:13:32 Informational] ------ Run test started ------
+[16/02/2021 16:13:33 Informational] ========== Run test finished: 1 run (0:00:01.1272051) ==========
