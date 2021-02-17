@@ -9,6 +9,6 @@ namespace ClassLibrary
         public char Grade { get; set; }
         public int BatchNo { get; set; }
         public int StaffID { get; set; }
-        public int ProductNo { get; set; }
+        public String ProductNo { get; set; }
     }
 }

@@ -74,7 +74,7 @@ namespace Testing5
         public void ProductNoPropertyOK()
         {
             clsQuality QualityControl = new clsQuality();
-            Int32 DataTest = 1;
+            String DataTest = 1;
             QualityControl.ProductNo = DataTest;
             Assert.AreEqual(QualityControl.ProductNo, DataTest);
         }
