@@ -5,5 +5,7 @@
         public clsOrder()
         {
         }
+
+        public string ProductNo { get; set; }
     }
 }
