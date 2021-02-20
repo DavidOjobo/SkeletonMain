@@ -13,5 +13,13 @@ namespace Testing4
             clsOrder OrderProcessing = new clsOrder();
             Assert.IsNotNull(OrderProcessing);
         }
+        [TestMethod]
+        public void ProductNoProperty()
+        {
+            clsOrder OrderProcessing = new clsOrder();
+            String TestData = "1a";
+            OrderProcessing.ProductNo =TestData;
+            Assert.AreEqual(OrderProcessing.ProductNo, TestData);
+        }
     }
 }
