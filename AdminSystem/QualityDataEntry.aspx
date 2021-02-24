@@ -24,7 +24,7 @@
             <asp:Label ID="lblGrade" runat="server" Text="Grade: " width="108px"></asp:Label>
             <asp:DropDownList ID="ddlGrade" runat="server">
                 <asp:ListItem>A</asp:ListItem>
-                <asp:ListItem>B</asp:ListItem>
+                <asp:ListItem>D</asp:ListItem>
                 <asp:ListItem>C</asp:ListItem>
             </asp:DropDownList><br />
             <asp:Label ID="lblDate" runat="server" Text="Date Added: " width="109px"></asp:Label>
