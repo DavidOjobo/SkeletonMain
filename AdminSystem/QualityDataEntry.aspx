@@ -20,7 +20,8 @@
             <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox><br />
             <asp:Label ID="lblBatchNo" runat="server" Text="Batch Number: " width="109px"></asp:Label>
             <asp:TextBox ID="txtBatchNo" runat="server"></asp:TextBox><br />
-            <asp:Label ID="lblGrade" runat="server" Text="Grade: " width="109px"></asp:Label>
+            <a href="QualityDataEntry.aspx">QualityDataEntry.aspx</a>
+            <asp:Label ID="lblGrade" runat="server" Text="Grade: " width="108px"></asp:Label>
             <asp:DropDownList ID="ddlGrade" runat="server">
                 <asp:ListItem>A</asp:ListItem>
                 <asp:ListItem>B</asp:ListItem>
