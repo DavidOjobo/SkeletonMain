@@ -7,9 +7,28 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="lblProductNo" runat="server">
         <div>
         </div>
+        ProductNo<asp:TextBox ID="txtProductNo" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
+            <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblSurname" runat="server" Text="Surname"></asp:Label>
+        <asp:TextBox ID="txtSurname" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
+            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblOrder" runat="server" Text="OrderNo"></asp:Label>
+        <asp:TextBox ID="txtOrderNo" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblAddress" runat="server" Text="Address"></asp:Label>
+            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblPhoneNo" runat="server" Text="PhoneNo"></asp:Label>
+        <asp:TextBox ID="txtPhoneNo" runat="server"></asp:TextBox>
     </form>
 </body>
 </html>
