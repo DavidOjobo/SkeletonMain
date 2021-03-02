@@ -10,13 +10,13 @@
     <form id="lblProductNo" runat="server">
         <div>
         </div>
-        ProductNo<asp:TextBox ID="txtProductNo" runat="server"></asp:TextBox>
+        ProductNo<asp:TextBox ID="txtProductNo" runat="server" OnTextChanged="txtProductNo_TextChanged"></asp:TextBox>
         <p>
-            <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
-            <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+            <asp:Label ID="lblFullName" runat="server" Text="Full Name"></asp:Label>
+            <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
         </p>
-        <asp:Label ID="lblSurname" runat="server" Text="Surname"></asp:Label>
-        <asp:TextBox ID="txtSurname" runat="server"></asp:TextBox>
+        <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label>
+        <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
@@ -29,6 +29,13 @@
         </p>
         <asp:Label ID="lblPhoneNo" runat="server" Text="PhoneNo"></asp:Label>
         <asp:TextBox ID="txtPhoneNo" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblCustomerID" runat="server" Text="CustomerID"></asp:Label>
+            <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblError" runat="server"></asp:Label>
+        <asp:Button ID="btnOk" runat="server" OnClick="btnOk_Click" Text="Ok" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
     </form>
 </body>
 </html>
