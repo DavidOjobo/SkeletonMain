@@ -74,12 +74,108 @@ namespace Testing5
         public void ProductNoPropertyOK()
         {
             clsQuality QualityControl = new clsQuality();
-            String DataTest = "1a";
+            String DataTest = "1";
             QualityControl.ProductNo = DataTest;
             Assert.AreEqual(QualityControl.ProductNo, DataTest);
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            String ProductNo = "1";
+            Found = QualityControl.Find(ProductNo);
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestProductNoFound()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            Boolean OK = true;
+            String ProductNo = "1";
+            Found = QualityControl.Find(ProductNo);
+            if (QualityControl.ProductNo != "1")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
 
-        
+        }
+        [TestMethod]
+        public void TestDateFound()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            Boolean OK = true;
+            String ProductNo = "1";
+            Found = QualityControl.Find(ProductNo);
+            if (QualityControl.Date != Convert.ToDateTime("01/01/2021"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
 
+        }
+        [TestMethod]
+        public void TestStaffIDFound()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            Boolean OK = true;
+            String ProductNo = "1";
+            Found = QualityControl.Find(ProductNo);
+            if (QualityControl.StaffID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestBatchNoFound()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            Boolean OK = true;
+            String ProductNo = "1";
+            Found = QualityControl.Find(ProductNo);
+            if (QualityControl.BatchNo != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestGradeFound()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            Boolean OK = true;
+            String ProductNo = "1";
+            Found = QualityControl.Find(ProductNo);
+            if (QualityControl.Grade != 'c')
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestDefectiveFound()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            Boolean OK = true;
+            String ProductNo = "1";
+            Found = QualityControl.Find(ProductNo);
+            if (QualityControl.Defective != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
     }
 }
