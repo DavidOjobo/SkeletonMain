@@ -155,7 +155,7 @@ namespace Testing5
             Boolean OK = true;
             String ProductNo = "1";
             Found = QualityControl.Find(ProductNo);
-            if (QualityControl.Grade != 'c')
+            if (QualityControl.Grade != 'A')
             {
                 OK = false;
             }
