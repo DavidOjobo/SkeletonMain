@@ -80,14 +80,25 @@ namespace ClassLibrary
         }
         public bool Find(string productNo)
         {
-            mProductNo = "1";
-            mDate = Convert.ToDateTime("01/01/2021");
-            mStaffID = 1;
-            mBatchNo = 1;
-            mGrade = 'C';
-            mDefective = true;
-            //always return true
-            return true;
+            //create instance of class
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", ProductNo);
+            DB.Execute("sproc_tblQuality_FilterByProductNo");
+            if (DB.Count == 1)
+            {
+                mProductNo = Convert.ToString(DB.DataTable.Rows[0]["ProductNo"]);
+                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mBatchNo = Convert.ToInt32(DB.DataTable.Rows[0]["BatchNo"]);
+                mGrade = Convert.ToChar(DB.DataTable.Rows[0]["Grade"]);
+                mDefective = Convert.ToBoolean(DB.DataTable.Rows[0]["Defective"]);
+                //always return true
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
