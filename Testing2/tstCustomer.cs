@@ -17,7 +17,7 @@ namespace Testing2
         public void ProductNoOK()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "2a";
+            String TestData = "1";
             Customer.ProductNo = TestData;
             Assert.AreEqual(Customer.ProductNo, TestData);
         }
@@ -35,7 +35,7 @@ namespace Testing2
         public void FullNameOK()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "2a";
+            String TestData = "Full Name";
             Customer.FullName = TestData;
             Assert.AreEqual(Customer.FullName, TestData);
         }
@@ -44,7 +44,7 @@ namespace Testing2
         public void EmailOK()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "2a";
+            String TestData = "Email";
             Customer.Email = TestData;
             Assert.AreEqual(Customer.Email, TestData);
         }
@@ -62,7 +62,7 @@ namespace Testing2
         public void PhoneNumber()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "2a";
+            String TestData = "00000000000";
             Customer.PhoneNumber = TestData;
             Assert.AreEqual(Customer.PhoneNumber, TestData);
         }
@@ -70,7 +70,7 @@ namespace Testing2
         public void Address()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "2a";
+            String TestData = "12 Smith Road";
             Customer.Address = TestData;
             Assert.AreEqual(Customer.Address, TestData);
         }
@@ -87,7 +87,7 @@ namespace Testing2
         { 
             clsCustomer Customer = new clsCustomer();
             Boolean Found = false;
-            String ProductNo = "1a";
+            String ProductNo = "1";
             Found = Customer.Find(ProductNo);
             Assert.IsTrue(Found);
         }
@@ -101,11 +101,11 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1a";
+            String ProductNo = "1";
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.ProductNo != "1a")
+            if (Customer.ProductNo != "1")
             {
                 OK = false;
             }
@@ -142,11 +142,11 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1a";
+            String ProductNo = "1";
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.FullName != "1a")
+            if (Customer.FullName != "Full Name")
             {
                 OK = false;
             }
@@ -162,11 +162,11 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String Email = "1a";
+            String ProductNo = "1";
             //invoke the method
-            Found = Customer.Find(Email);
+            Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.Email != "1a")
+            if (Customer.Email != "Email@")
             {
                 OK = false;
             }
@@ -203,11 +203,11 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1a";
+            String ProductNo = "1";
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.PhoneNumber != "00000000000")
+            if (Customer.PhoneNumber != "079338432901")
             {
                 OK = false;
             }
@@ -223,11 +223,11 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1a";
+            String ProductNo = "1";
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.Address != "1a")
+            if (Customer.Address != "12 Smith Road")
             {
                 OK = false;
             }
