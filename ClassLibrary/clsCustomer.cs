@@ -4,11 +4,11 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        private String mProductNo;
+        private int mProductNo;
 
 
 
-        public string ProductNo
+        public int ProductNo
         {
             get
             {
@@ -127,7 +127,7 @@ namespace ClassLibrary
 
         }
 
-        public bool Find(string productNo)
+        public bool Find(int ProductNo)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
@@ -138,7 +138,7 @@ namespace ClassLibrary
             if(DB.Count == 1)
                 
                 {
-                    mProductNo = Convert.ToString(DB.DataTable.Rows[0]["ProductNo"]);
+                    mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
                     mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
                     mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                     mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);

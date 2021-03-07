@@ -22,10 +22,36 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         
             clsCustomer Customer = new clsCustomer();
-            Customer.ProductNo = txtProductNo.Text;
+            Customer.ProductNo = Convert.ToInt32(txtProductNo.Text);
             Session["Customer"] = Customer;
             //navigate to viewer page
             Response.Redirect("CustomerViewer.aspx");
+        
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+   
+        {
+            clsCustomer Customer = new clsCustomer();
+            Int32 ProductNo;
+            Boolean Found = false;
+            ProductNo = Convert.ToInt32(txtProductNo.Text);
+            Found = Customer.Find(ProductNo);
+
+            if (Found == true)
+            {
+                txtProductNo.Text = Customer.ProductNo.ToString();
+                txtFullName.Text = Customer.FullName;
+                txtEmail.Text = Customer.Email;
+                txtOrderNo.Text = Customer.OrderNo.ToString();
+                txtCustomerID.Text = Customer.CustomerID.ToString();
+                txtPhoneNo.Text = Customer.PhoneNumber;
+                txtAddress.Text = Customer.Address;
+                txtDate.Text = Customer.Date.ToString();
+
+
+            }
+
         
     }
 }

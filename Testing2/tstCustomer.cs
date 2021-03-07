@@ -17,7 +17,7 @@ namespace Testing2
         public void ProductNoOK()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "1";
+            Int32 TestData = 1;
             Customer.ProductNo = TestData;
             Assert.AreEqual(Customer.ProductNo, TestData);
         }
@@ -87,7 +87,7 @@ namespace Testing2
         { 
             clsCustomer Customer = new clsCustomer();
             Boolean Found = false;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = Customer.Find(ProductNo);
             Assert.IsTrue(Found);
         }
@@ -101,11 +101,11 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+             Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.ProductNo != "1")
+            if (Customer.ProductNo != 1)
             {
                 OK = false;
             }
@@ -121,7 +121,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
@@ -142,7 +142,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
@@ -162,7 +162,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
@@ -183,7 +183,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
@@ -203,7 +203,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
@@ -223,7 +223,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
@@ -243,7 +243,7 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
