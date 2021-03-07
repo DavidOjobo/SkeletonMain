@@ -15,18 +15,19 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="lblProductNo" runat="server" Text="Product Number: "></asp:Label>
-            <asp:TextBox ID="txtProductNo" runat="server"></asp:TextBox><br />
+            <asp:TextBox ID="txtProductNo" runat="server"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <br />
+            <asp:Label ID="lblProductName" runat="server" Text="Product Name:" width="109px"></asp:Label>
+            <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
+            <br />
             <asp:Label ID="lblStaffID" runat="server" Text="Staff ID: " width="109px"></asp:Label>
             <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox><br />
             <asp:Label ID="lblBatchNo" runat="server" Text="Batch Number: " width="109px"></asp:Label>
             <asp:TextBox ID="txtBatchNo" runat="server"></asp:TextBox><br />
-            <a href="QualityDataEntry.aspx">QualityDataEntry.aspx</a>
             <asp:Label ID="lblGrade" runat="server" Text="Grade: " width="108px"></asp:Label>
-            <asp:DropDownList ID="ddlGrade" runat="server">
-                <asp:ListItem>A</asp:ListItem>
-                <asp:ListItem>D</asp:ListItem>
-                <asp:ListItem>C</asp:ListItem>
-            </asp:DropDownList><br />
+            <asp:TextBox ID="txtGrade" runat="server"></asp:TextBox>
+            <br />
             <asp:Label ID="lblDate" runat="server" Text="Date Added: " width="109px"></asp:Label>
             <asp:TextBox ID="txtDate" runat="server"></asp:TextBox><br /><br />
             <asp:CheckBox ID="chkDefective" runat="server" Text="Defective" TextAlign="Left" /><br /><br />

@@ -21,7 +21,7 @@ namespace Testing5
             //create instance of class
             clsQuality QualityControl = new clsQuality();
             //create test data
-            Boolean TestData = true;
+            Boolean TestData = false;
             //assign data to property
             QualityControl.Defective = TestData;
             //test to see if values are the same
@@ -74,28 +74,37 @@ namespace Testing5
         public void ProductNoPropertyOK()
         {
             clsQuality QualityControl = new clsQuality();
-            String DataTest = "1";
+            Int32 DataTest = 1;
             QualityControl.ProductNo = DataTest;
             Assert.AreEqual(QualityControl.ProductNo, DataTest);
+        }
+        [TestMethod]
+        public void ProductNamePropertyOK()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String DataTest = "Blue";
+            QualityControl.ProductName = DataTest;
+            Assert.AreEqual(QualityControl.ProductName, DataTest);
         }
         [TestMethod]
         public void FindMethodOK()
         {
             clsQuality QualityControl = new clsQuality();
             Boolean Found = false;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
             Assert.IsTrue(Found);
         }
+       
         [TestMethod]
         public void TestProductNoFound()
         {
             clsQuality QualityControl = new clsQuality();
             Boolean Found = false;
             Boolean OK = true;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
-            if (QualityControl.ProductNo != "1")
+            if (QualityControl.ProductNo != 1)
             {
                 OK = false;
             }
@@ -108,7 +117,7 @@ namespace Testing5
             clsQuality QualityControl = new clsQuality();
             Boolean Found = false;
             Boolean OK = true;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
             if (QualityControl.Date != Convert.ToDateTime("01/01/2021"))
             {
@@ -123,7 +132,7 @@ namespace Testing5
             clsQuality QualityControl = new clsQuality();
             Boolean Found = false;
             Boolean OK = true;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
             if (QualityControl.StaffID != 1)
             {
@@ -138,7 +147,7 @@ namespace Testing5
             clsQuality QualityControl = new clsQuality();
             Boolean Found = false;
             Boolean OK = true;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
             if (QualityControl.BatchNo != 1)
             {
@@ -153,7 +162,7 @@ namespace Testing5
             clsQuality QualityControl = new clsQuality();
             Boolean Found = false;
             Boolean OK = true;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
             if (QualityControl.Grade != 'A')
             {
@@ -168,9 +177,24 @@ namespace Testing5
             clsQuality QualityControl = new clsQuality();
             Boolean Found = false;
             Boolean OK = true;
-            String ProductNo = "1";
+            Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
-            if (QualityControl.Defective != true)
+            if (QualityControl.Defective != false)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestProductNameFound()
+        {
+            clsQuality QualityControl = new clsQuality();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductNo = 1;
+            Found = QualityControl.Find(ProductNo);
+            if (QualityControl.ProductName != "Blue")
             {
                 OK = false;
             }
