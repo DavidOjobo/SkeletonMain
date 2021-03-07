@@ -12,6 +12,6 @@ public partial class _1Viewer : System.Web.UI.Page
     {
         clsQuality QualityControl = new clsQuality();
         QualityControl = (clsQuality)Session["QualityControl"];
-        Response.Write(QualityControl.ProductNo);
+        Response.Write(QualityControl.ProductName);
     }
 }

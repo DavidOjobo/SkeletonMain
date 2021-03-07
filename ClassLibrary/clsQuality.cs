@@ -66,8 +66,8 @@ namespace ClassLibrary
             }
         }
         //private data member for ProductNo
-        private String mProductNo;
-        public String ProductNo
+        private Int32 mProductNo;
+        public Int32 ProductNo
         {
             get
             {
@@ -78,20 +78,34 @@ namespace ClassLibrary
                 mProductNo = value;
             }
         }
-        public bool Find(string productNo)
+        private string mProductName;
+        public string ProductName
+        {
+            get
+            {
+                return mProductName;
+            }
+            set
+            {
+                mProductName = value;
+            }
+        }
+
+        public bool Find(Int32 productNo)
         {
             //create instance of class
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@ProductNo", ProductNo);
-            DB.Execute("sproc_tblQuality_FilterByProductNo");
+            DB.Execute("[dbo].sproc_tblQuality_FilterByProductNo");
             if (DB.Count == 1)
             {
-                mProductNo = Convert.ToString(DB.DataTable.Rows[0]["ProductNo"]);
+                mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
                 mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
                 mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
                 mBatchNo = Convert.ToInt32(DB.DataTable.Rows[0]["BatchNo"]);
                 mGrade = Convert.ToChar(DB.DataTable.Rows[0]["Grade"]);
                 mDefective = Convert.ToBoolean(DB.DataTable.Rows[0]["Defective"]);
+                mProductName = Convert.ToString(DB.DataTable.Rows[0]["ProductName"]);
                 //always return true
                 return true;
             }
