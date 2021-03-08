@@ -16,7 +16,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsOrder OrderProcessing = new clsOrder();
-        OrderProcessing.ProductNo = txtProductNo.Text;
+        OrderProcessing.ProductName = txtProductName.Text;
         Session["OrderProcessing"] = OrderProcessing;
         Response.Redirect("OrderViewer.aspx");
 

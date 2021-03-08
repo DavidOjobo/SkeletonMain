@@ -12,6 +12,6 @@ public partial class _1Viewer : System.Web.UI.Page
     {
         clsOrder OrderProcessing = new clsOrder();
         OrderProcessing = (clsOrder)Session["OrderProcessing"];
-        Response.Write(OrderProcessing.ProductNo);
+        Response.Write(OrderProcessing.ProductName);
     }
 }
