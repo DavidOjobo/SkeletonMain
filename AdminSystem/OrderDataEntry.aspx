@@ -14,8 +14,8 @@
         <asp:TextBox ID="txtProductNo" runat="server"></asp:TextBox><br />
         <asp:Label ID="lblOrderNo" runat="server" Text="OrderNo" width="121px"></asp:Label>
         <asp:TextBox ID="txtOrderNo" runat="server"></asp:TextBox><br />
-        <asp:Label ID="lblProductDescription" runat="server" Text="Product Description"></asp:Label>
-        <asp:TextBox ID="txtProductDescription" runat="server"></asp:TextBox><br />
+        <asp:Label ID="lblProductName" runat="server" Text="Product Name"></asp:Label>
+        <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox><br />
         <asp:Label ID="lblPrice" runat="server" Text="Price" width="121px"></asp:Label>
         <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox><br />
         <asp:Label ID="lblDate" runat="server" Text="Date" width="121px"></asp:Label>
