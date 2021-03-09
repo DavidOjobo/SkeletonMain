@@ -17,7 +17,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOk_Click(object sender, EventArgs e)
     {
         clsStock StockManagement = new clsStock();
-        StockManagement.ProductNo = txtProductNo.Text;
+        StockManagement.ProductName = txtProductName.Text;
         Session["StockManagement"] = StockManagement;
         Response.Redirect("StockViewer.aspx");
     }
