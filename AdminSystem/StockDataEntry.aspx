@@ -12,8 +12,8 @@
         <asp:TextBox ID="txtProductNo" runat="server"></asp:TextBox>
         <br />
         <div>
-        <asp:Label ID="ProductDescription" runat="server" Text="Product Description"></asp:Label>
-            <asp:TextBox ID="txtProductDescription" runat="server"></asp:TextBox>
+        <asp:Label ID="lblProductName" runat="server" Text="Product Name" width="121px"></asp:Label>
+            <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
             <br />
             <br />
         </div>

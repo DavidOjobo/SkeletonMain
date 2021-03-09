@@ -20,7 +20,7 @@ namespace ClassLibrary
             }
         }
         private int mQuantityOrdered;
-        public int OrderNo
+        public int QuantityOrdered
         {
             get
             {
