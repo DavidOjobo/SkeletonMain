@@ -17,7 +17,7 @@ namespace Testing3
         public void ProductNoPropertyOK()
         {
             clsStock StockManagement = new clsStock();
-            String TestData = "2a";
+             Int32 TestData = 1;
             StockManagement.ProductNo = TestData;
             Assert.AreEqual(StockManagement.ProductNo, TestData);
         }
@@ -30,12 +30,12 @@ namespace Testing3
             Assert.AreEqual(StockManagement.QuantityOrdered, TestData);
         }
         [TestMethod]
-        public void ProductDescriptionPropertyOK()
+        public void ProductNamePropertyOK()
         {
             clsStock StockManagement = new clsStock();
             String TestData = "a b c";
-            StockManagement.ProductDescription = TestData;
-            Assert.AreEqual(StockManagement.ProductDescription, TestData);
+            StockManagement.ProductName = TestData;
+            Assert.AreEqual(StockManagement.ProductName, TestData);
         }
         [TestMethod]
         public void PricePropertyOK()
