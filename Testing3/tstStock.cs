@@ -25,7 +25,7 @@ namespace Testing3
         public void QuantityOrderedPropertyOK()
         {
             clsStock StockManagement = new clsStock();
-            Int32 TestData = 1;
+            Int32 TestData = 2;
             StockManagement.QuantityOrdered = TestData;
             Assert.AreEqual(StockManagement.QuantityOrdered, TestData);
         }
@@ -169,7 +169,7 @@ namespace Testing3
             //invoke the method 
             Found = StockManagement.Find(ProductNo);
             //checks is quantityOrdered is correct
-            if (StockManagement.QuantityOrdered != 400) ;
+            if (StockManagement.QuantityOrdered != 1) ;
             {
                 OK = false;
             }
