@@ -86,15 +86,30 @@ namespace ClassLibrary
         }
 
 
-        public bool Find(int productNo)
+      
+
+        public bool Find(Int32 productNo)
         {
-            mProductNo = 1;
-            mProductName = "Nike";
-            mPrice = 420.69;
-            mDate = Convert.ToDateTime("01/01/21");
-            mQuantityInStock= 2000;
-            mQuantityOrdered = 400;
-            return true;
+            //create instance of class
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", ProductNo);
+            DB.Execute("[dbo].sproc_tblQuality_FilterByProductNo");
+            if (DB.Count == 1)
+            {
+                mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
+                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mQuantityOrdered = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityOrdered"]);
+                mQuantityInStock = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityInStock"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mProductName = Convert.ToString(DB.DataTable.Rows[0]["ProductName"]);
+                //always return true
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
