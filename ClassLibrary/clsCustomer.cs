@@ -82,8 +82,8 @@ namespace ClassLibrary
 
         }
 
-        private String mPhoneNumber;
-        public string PhoneNumber
+        private Int64 mPhoneNumber;
+        public Int64 PhoneNumber
         {
             get
             {
@@ -143,7 +143,7 @@ namespace ClassLibrary
                     mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                     mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                     mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                    mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["Phone Number"]);
+                    mPhoneNumber = Convert.ToInt64(DB.DataTable.Rows[0]["Phone Number"]);
                     mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
                     mFullName = Convert.ToString(DB.DataTable.Rows[0]["Full Name"]);
                     //copy the data from the database to the private data members
@@ -160,5 +160,10 @@ namespace ClassLibrary
 
 
     }
-}
+
+        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string orderNo, string customerID)
+        {
+            return "";
+        }
+    }
 }

@@ -45,7 +45,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 txtEmail.Text = Customer.Email;
                 txtOrderNo.Text = Customer.OrderNo.ToString();
                 txtCustomerID.Text = Customer.CustomerID.ToString();
-                txtPhoneNo.Text = Customer.PhoneNumber;
+                txtPhoneNo.Text = Customer.PhoneNumber.ToString();
                 txtAddress.Text = Customer.Address;
                 txtDate.Text = Customer.Date.ToString();
 

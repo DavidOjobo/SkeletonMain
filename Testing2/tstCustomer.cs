@@ -7,6 +7,14 @@ namespace Testing2
     [TestClass]
     public class tstCustomer
     {
+        String FullName = "John Smith";
+        String PhoneNumber = 01234567891.ToString();
+        String Email = "abcde@hotmail.com";
+        String Address = "96 Waterloo Road";
+        String Date = DateTime.Now.Date.ToString();
+        String OrderNo = 5555.ToString();
+        String CustomerID = 1.ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -50,24 +58,24 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void OrderNo()
+        public void OrderNoOK()
         {
             clsCustomer Customer = new clsCustomer();
-            Int32 TestData = 1;
+            Int32 TestData = 5555;
             Customer.OrderNo = TestData;
             Assert.AreEqual(Customer.OrderNo, TestData);
         }
 
         [TestMethod]
-        public void PhoneNumber()
+        public void PhoneNumberOK()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "00000000000";
+            Int64 TestData = 01234567891;
             Customer.PhoneNumber = TestData;
             Assert.AreEqual(Customer.PhoneNumber, TestData);
         }
         [TestMethod]
-        public void Address()
+        public void AddressOK()
         {
             clsCustomer Customer = new clsCustomer();
             String TestData = "12 Smith Road";
@@ -207,7 +215,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.PhoneNumber != "079338432901")
+            if (Customer.PhoneNumber != 079338432901) 
             {
                 OK = false;
             }
@@ -254,6 +262,16 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance for the class Customer
+            clsCustomer Customer = new clsCustomer();
+            //String variable to store the Error message
+            String Error = "";
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Assert.AreEqual(Error, "");
+        }
     }
-
+    
 }
