@@ -7,6 +7,14 @@ namespace Testing5
     [TestClass]
     public class tstQuality
     {
+        String ProductName = "Blue";
+        String StaffID = 1.ToString();
+        String BatchNo = 1.ToString();
+        String Date = DateTime.Now.Date.ToString();
+        String Grade = 'A'.ToString();
+        String Defective = true.ToString();
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -200,6 +208,14 @@ namespace Testing5
             }
             Assert.IsTrue(OK);
 
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreEqual(Error, "");
         }
     }
 }

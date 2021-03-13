@@ -114,5 +114,10 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string productName, string staffID, string batchNo, string grade, string date, string defective)
+        {
+            return "";
+        }
     }
 }
