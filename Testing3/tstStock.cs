@@ -169,7 +169,7 @@ namespace Testing3
             //invoke the method 
             Found = StockManagement.Find(ProductNo);
             //checks is quantityOrdered is correct
-            if (StockManagement.QuantityOrdered != 1) ;
+            if (StockManagement.QuantityOrdered != 1) 
             {
                 OK = false;
             }
@@ -190,7 +190,7 @@ namespace Testing3
             //invoke the method 
             Found = StockManagement.Find(ProductNo);
             //checks is quantityOrdered is correct
-            if (StockManagement.QuantityInStock != 2000) ;
+            if (StockManagement.QuantityInStock != 2000) 
             {
                 OK = false;
             }
