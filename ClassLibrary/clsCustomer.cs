@@ -163,7 +163,13 @@ namespace ClassLibrary
 
         public string Valid(string fullName, string email, string phoneNumber, string date, string address, string orderNo, string customerID)
         {
-            return "";
+            String Error = "";
+
+            if (Address.Length == 0)
+            {
+                Error = Error + "The address may not be blank";
+            }
+            return Error;
         }
     }
 }
