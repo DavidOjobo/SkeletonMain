@@ -217,5 +217,72 @@ namespace Testing5
             Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
             Assert.AreEqual(Error, "");
         }
+        [TestMethod]
+        public void ProductNameMinLessOne()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            string ProductName = "";
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMin()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            string ProductName = "a";
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMinPlusOne()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            string ProductName = "aa";
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMaxLess1()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            string ProductName = "";
+            ProductName = ProductName.PadRight(19, 'a');
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMax()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            string ProductName = "";
+            ProductName = ProductName.PadRight(20, 'a');
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMaxPlusOne()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            string ProductName = "";
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMid()
+        {
+            clsQuality QualityControl = new clsQuality();
+            String Error = "";
+            string ProductName = "";
+            ProductName = ProductName.PadRight(10, 'a');
+            Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
+            Assert.AreNotEqual(Error, "");
+        }
+       
     }
 }
