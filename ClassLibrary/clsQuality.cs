@@ -117,7 +117,13 @@ namespace ClassLibrary
 
         public string Valid(string productName, string staffID, string batchNo, string grade, string date, string defective)
         {
-            return "";
+            String Error = "";
+            if (productName.Length == 0)
+            {
+                Error = Error + "This name may not be blank: ";
+
+            }
+            return Error;
         }
     }
 }
