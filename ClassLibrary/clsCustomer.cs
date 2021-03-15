@@ -97,6 +97,11 @@ namespace ClassLibrary
 
         }
 
+        public string Valid(string fullName, string email, string address, string phoneNumber, string date, string orderNo, int customerID)
+        {
+            throw new NotImplementedException();
+        }
+
         private String mAddress;
         public string Address
         {
@@ -164,12 +169,33 @@ namespace ClassLibrary
         public string Valid(string fullName, string email, string phoneNumber, string date, string address, string orderNo, string customerID)
         {
             String Error = "";
+            DateTime DateTemp;
 
             if (Address.Length == 0)
             {
                 Error = Error + "The address may not be blank";
             }
             return Error;
+            
+
+        
+            {
+                
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(Date);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+
         }
     }
 }
