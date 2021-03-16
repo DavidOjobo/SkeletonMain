@@ -58,10 +58,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             // capture the Address
             Customer.Address = Address;
             //capture the OrderNo
-            Customer.OrderNo = OrderNo.Convert.ToInt32();
-            Customer.PhoneNumber = PhoneNumber;
+            //Customer.OrderNo = OrderNo.Convert.ToInt32();
+            //Customer.PhoneNumber = PhoneNumber;
             // capture the CustomID
-            Customer.CustomerID = CustomerID;
+            //Customer.CustomerID = CustomerID;
             //I capture date added
             Customer.Date = Convert.ToDateTime(Date);
             //store the address in the session object
