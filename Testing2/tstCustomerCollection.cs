@@ -38,14 +38,6 @@ namespace Testing2
 
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            Int32 SomeCount = 0;
-            AllCustomers.Count = SomeCount;
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
-        }
 
         [TestMethod]
         public void ThisCustomerPropertyOK()
@@ -83,4 +75,6 @@ namespace Testing2
             AllCustomers.CustomerList = TestList;
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
+
+    }
 }
