@@ -8,8 +8,33 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 ProductNo;
     protected void Page_Load(object sender, EventArgs e)
     {
+        ProductNo = Convert.ToInt32(Session["ProductNo"]);
+        if (IsPostBack == false)
+        {
+            if (ProductNo != -1)
+            {
+                DisplayProduct();
+            }
+        }
+
+    }
+
+    void DisplayProduct()
+    {
+        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        CustomerBook.ThisCustomer.Find(ProductNo);
+        txtProductNo.Text = CustomerBook.ThisCustomer.ProductNo.ToString();
+        txtFullName.Text = CustomerBook.ThisCustomer.FullName;
+        txtEmail.Text = CustomerBook.ThisCustomer.Email;
+        txtOrderNo.Text = CustomerBook.ThisCustomer.OrderNo.ToString();
+        txtCustomerID.Text = CustomerBook.ThisCustomer.CustomerID.ToString();
+        txtPhoneNo.Text = CustomerBook.ThisCustomer.PhoneNumber.ToString();
+        txtAddress.Text = CustomerBook.ThisCustomer.Address;
+        txtDate.Text = CustomerBook.ThisCustomer.Date.ToString();
+
 
     }
 
@@ -22,14 +47,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
         clsCustomer Customer = new clsCustomer();
-        Customer.ProductNo = Convert.ToInt32(txtProductNo.Text);
-        Customer.PhoneNumber = Convert.ToInt32(txtPhoneNo.Text);
-        Customer.OrderNo = Convert.ToInt32(txtOrderNo.Text);
-        Customer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        Session["Customer"] = Customer;
-        //navigate to viewer page
-        Response.Redirect("CustomerViewer.aspx");
-
+       
         //create a new instance of clsCustomer
 
         //capture the Full Name
@@ -40,15 +58,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string PhoneNumber = txtPhoneNo.Text;
         string Address = txtAddress.Text;
         //capture the OrderNo
-        string OrderNo = txtOrderNo.Text;
+        int OrderNo = Convert.ToInt32(txtOrderNo.Text);
         //capture the CustomerID
-        string CustomerID = txtCustomerID.Text;
+        int CustomerID = Convert.ToInt32(txtCustomerID.Text);
         // capture Date added
         string Date = txtDate.Text;
         // varlable to store any error messages
         string Error = "";
         //validate the data
-        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, OrderNo, CustomerID);
+        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, OrderNo, CustomerID); 
         if (Error == "")
         {
             // capture the Full Name
@@ -58,16 +76,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
             // capture the Address
             Customer.Address = Address;
             //capture the OrderNo
-            //Customer.OrderNo = OrderNo.Convert.ToInt32();
-            //Customer.PhoneNumber = PhoneNumber;
+            Customer.OrderNo = OrderNo;
+            Customer.PhoneNumber = PhoneNumber;
             // capture the CustomID
-            //Customer.CustomerID = CustomerID;
+            Customer.CustomerID = CustomerID;
             //I capture date added
             Customer.Date = Convert.ToDateTime(Date);
             //store the address in the session object
-            Session["Customer"] = Customer;
-            //redirect to the viewer page
-            Response.Write("CustomerViewer.aspx");
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+
+            if (ProductNo == -1)
+            {
+                CustomerList.ThisCustomer = Customer;
+                CustomerList.Add();
+            }
+            
+            else
+            {
+                CustomerList.ThisCustomer.Find(ProductNo);
+                CustomerList.ThisCustomer = Customer;
+                CustomerList.Update();
+            }
+
+            Response.Redirect("CustomerList.aspx");
 
         }
         else

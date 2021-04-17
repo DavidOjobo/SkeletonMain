@@ -70,7 +70,7 @@ namespace Testing2
         public void PhoneNumberOK()
         {
             clsCustomer Customer = new clsCustomer();
-            Int64 TestData = 01234567891;
+            String TestData = "01234567891";
             Customer.PhoneNumber = TestData;
             Assert.AreEqual(Customer.PhoneNumber, TestData);
         }
@@ -215,7 +215,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(ProductNo);
             //check the address no
-            if (Customer.PhoneNumber != 079338432901) 
+            if (Customer.PhoneNumber != "079338432901") 
             {
                 OK = false;
             }
