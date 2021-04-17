@@ -100,6 +100,15 @@ namespace ClassLibrary
 
 
         }
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
+            //DB.AddParameter("@Active", mThisCustomer.Active);
+            DB.Execute("sproc_tblCustomer_FJ_Delete");
+
+
+        }
 
     }
 
