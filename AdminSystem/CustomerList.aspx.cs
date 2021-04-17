@@ -17,7 +17,7 @@ public partial class _1_List : System.Web.UI.Page
     }
     void DisplayCustomers()
     {
-        clsCustomerCollection AllCustomers = new clsCustomerCollection();
+        Class_Library.clsCustomerCollection AllCustomers = new Class_Library.clsCustomerCollection();
         lstCustomerList.DataSource = AllCustomers.CustomerList;
         lstCustomerList.DataValueField = "ProductNo";
         lstCustomerList.DataTextField = "Address";
@@ -48,5 +48,20 @@ public partial class _1_List : System.Web.UI.Page
         }
 
 
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        Int32 ProductNo;
+        if(lstCustomerList.SelectedIndex != -1)
+        {
+            ProductNo = Convert.ToInt32(lstCustomerList.SelectedValue);
+            Session["ProductNo"] = ProductNo;
+            Response.Redirect("DeleteAddres.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record to delete from the list";
+        }
     }
 }
