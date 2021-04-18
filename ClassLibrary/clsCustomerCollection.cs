@@ -8,7 +8,7 @@ namespace ClassLibrary
     {
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
         clsCustomer mThisCustomer = new clsCustomer();
-        
+
         public clsCustomerCollection()
 
         {
@@ -34,7 +34,7 @@ namespace ClassLibrary
             }
 
         }
-       
+
 
         public List<clsCustomer> CustomerList
         {
@@ -83,7 +83,7 @@ namespace ClassLibrary
             //DB.AddParameter("@Active", mThisCustomer.Active);
             return DB.Execute("sproc_tblCustomer_FJ_Insert");
 
-    
+
 
         }
         public int Update()
@@ -108,6 +108,13 @@ namespace ClassLibrary
             DB.Execute("sproc_tblCustomer_FJ_Delete");
 
 
+        }
+
+        public void ReportByFullName(string FullName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@FullName", FullName);
+            DB.Execute("sproc_tblCustomer_FJ_FilterByFullName");
         }
 
     }
