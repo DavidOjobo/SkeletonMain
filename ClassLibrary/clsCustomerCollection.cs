@@ -130,6 +130,7 @@ namespace ClassLibrary
             DB.AddParameter("@FullName", FullName);
             //Execute the stored procedure
             DB.Execute("sproc_tblCustomer_FJ_FilterByFullName");
+            PopulateArray(DB);
         }
 
         void PopulateArray(clsDataConnection DB)

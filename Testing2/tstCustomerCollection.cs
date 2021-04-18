@@ -171,5 +171,30 @@ namespace Testing2
             FilteredCustomers.ReportByFullName("XXX XXX");
             Assert.AreEqual(0, FilteredCustomers.Count);
         }
+
+        [TestMethod]
+        public void ReportByFullNameTestDataFound()
+        {
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            Boolean OK = true;
+            FilteredCustomers.ReportByFullName("XXX XXX");
+            if (FilteredCustomers.Count == 2)
+            {
+               if (FilteredCustomers.CustomerList[1].ProductNo != 2)
+                {
+                    OK = false;
+                }
+                if (FilteredCustomers.CustomerList[2].ProductNo != 3)
+                {
+                    OK = false;
+
+                }
+                else
+                {
+                    OK = false;
+                }
+                Assert.IsTrue(OK);
+            }
+        }
     }
 }
