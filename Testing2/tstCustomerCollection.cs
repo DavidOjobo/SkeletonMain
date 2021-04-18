@@ -48,7 +48,7 @@ namespace Testing2
             TestCustomer.ProductNo = 1;
             TestCustomer.PhoneNumber = "000000000001";
             TestCustomer.FullName = "Bob Smith";
-            TestCustomer.Email = "Jsaosfij@ishfs.com";
+            TestCustomer.Email = "JasonBourne@bad.com";
             TestCustomer.CustomerID = 1;
             TestCustomer.Date = DateTime.Now.Date;
             TestCustomer.Address = "9 Hamilton Road LE5 J3D";
@@ -135,6 +135,7 @@ namespace Testing2
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
 
+        [TestMethod]
         public void DeleteMethodOK()
         {
 
@@ -160,5 +161,15 @@ namespace Testing2
 
         }
 
+        [TestMethod]
+
+        public void ReportByFullNameOK()
+        {
+            //filters the record using the Full Name
+
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            FilteredCustomers.ReportByFullName("XXX XXX");
+            Assert.AreEqual(0, FilteredCustomers.Count);
+        }
     }
 }

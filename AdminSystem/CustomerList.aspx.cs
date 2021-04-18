@@ -17,7 +17,7 @@ public partial class _1_List : System.Web.UI.Page
     }
     void DisplayCustomers()
     {
-        Class_Library.clsCustomerCollection AllCustomers = new Class_Library.clsCustomerCollection();
+        ClassLibrary.clsCustomerCollection AllCustomers = new ClassLibrary.clsCustomerCollection();
         lstCustomerList.DataSource = AllCustomers.CustomerList;
         lstCustomerList.DataValueField = "ProductNo";
         lstCustomerList.DataTextField = "Address";
