@@ -91,6 +91,7 @@ namespace ClassLibrary
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
+            DB.AddParameter("@Address", mThisCustomer.Address);
             //DB.AddParameter("@Active", mThisCustomer.Active);
             return DB.Execute("sproc_tblCustomer_FJ_Insert");
 
@@ -100,7 +101,9 @@ namespace ClassLibrary
         public int Update()
         {
             clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
             DB.AddParameter("@FullName", mThisCustomer.FullName);
+            DB.AddParameter("@Address", mThisCustomer.Address);
             DB.AddParameter("@Email", mThisCustomer.Email);
             DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
@@ -154,9 +157,9 @@ namespace ClassLibrary
                 Customer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 Customer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
                 Customer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
-                Customer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["Phone Number"]);
+                Customer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
                 Customer.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
-                Customer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["Full Name"]);
+                Customer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["FullName"]);
                 //Active = Convert.ToString(DB.DataTable.Rows[Index]["Full Name"]);
 
                 //Add the record to the private data member

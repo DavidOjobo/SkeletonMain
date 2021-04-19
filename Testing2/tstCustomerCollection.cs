@@ -87,10 +87,10 @@ namespace Testing2
             TestItem.ProductNo = 1;
             TestItem.PhoneNumber = "100000000000";
             TestItem.FullName = "Bob Smith";
-            TestItem.Email = "Jsaosfij@ishfs.com";
+            TestItem.Email = "JackTim@Lonely.com";
             TestItem.CustomerID = 1;
             TestItem.Date = DateTime.Now.Date;
-            TestItem.Address = "9 Hamilton Road LE5 J3D";
+            TestItem.Address = "6 Cool Road LE1 9NS";
             TestItem.OrderNo = 1;
             Int32 PrimaryKey = 1;
             AllCustomers.ThisCustomer = TestItem;
@@ -110,7 +110,7 @@ namespace Testing2
             clsCustomer TestItem = new clsCustomer();
             Int32 PrimaryKey = 1;
             //TestItem.Active = true;
-           
+            TestItem.ProductNo = 1;
             TestItem.PhoneNumber = "100000000000";
             TestItem.FullName = "Bob Smith";
             TestItem.Email = "Jsaosfij@ishfs.com";
