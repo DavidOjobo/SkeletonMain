@@ -91,6 +91,7 @@ namespace ClassLibrary
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
+            DB.AddParameter("@Address", mThisCustomer.Address);
             //DB.AddParameter("@Active", mThisCustomer.Active);
             return DB.Execute("sproc_tblCustomer_FJ_Insert");
 
@@ -100,7 +101,9 @@ namespace ClassLibrary
         public int Update()
         {
             clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
             DB.AddParameter("@FullName", mThisCustomer.FullName);
+            DB.AddParameter("@Address", mThisCustomer.Address);
             DB.AddParameter("@Email", mThisCustomer.Email);
             DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);

@@ -148,9 +148,9 @@ namespace ClassLibrary
                     mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                     mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                     mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                    mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["Phone Number"]);
+                    mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
                     mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
-                    mFullName = Convert.ToString(DB.DataTable.Rows[0]["Full Name"]);
+                    mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
                     //copy the data from the database to the private data members
                     return true;
                 }
