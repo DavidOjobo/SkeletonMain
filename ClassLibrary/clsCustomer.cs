@@ -132,6 +132,8 @@ namespace ClassLibrary
 
         }
 
+        public bool Active { get; set; }
+
         public bool Find(int ProductNo)
         {
             //create an instance of the data connection
@@ -166,7 +168,7 @@ namespace ClassLibrary
 
     }
 
-        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string orderNo, string customerID)
+        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string customerID)
         {
             String Error = "";
             DateTime DateTemp;

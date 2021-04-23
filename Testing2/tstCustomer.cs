@@ -12,16 +12,36 @@ namespace Testing2
         String Email = "abcde@hotmail.com";
         String Address = "96 Waterloo Road";
         String Date = DateTime.Now.Date.ToString();
-        String OrderNo = 5555.ToString();
+        //String OrderNo = 5555.ToString();
         String CustomerID = 1.ToString();
+        //String Active = Boolean.ToString();
 
+    
+    
         [TestMethod]
         public void InstanceOK()
         {
+            //create an instance of the class we want to create
             clsCustomer Customer = new clsCustomer();
+            //Test to see if it exists
             Assert.IsNotNull(Customer);
         }
-        [TestMethod]
+    
+
+    [TestMethod]
+    public void ActivePropertyOK()
+    {
+        //create an instance of the class we want to create
+        clsCustomer Customer = new clsCustomer();
+        //create some test data
+        Boolean TestData = true;
+        //Assign data to property
+        Customer.Active = TestData;
+        //Test to see if the two values are the same
+        Assert.AreEqual(Customer.Active, TestData);
+
+    }
+    [TestMethod]
         public void ProductNoOK()
         {
             clsCustomer Customer = new clsCustomer();
@@ -43,7 +63,7 @@ namespace Testing2
         public void FullNameOK()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "Full Name";
+            String TestData = "FullName";
             Customer.FullName = TestData;
             Assert.AreEqual(Customer.FullName, TestData);
         }
@@ -57,16 +77,16 @@ namespace Testing2
             Assert.AreEqual(Customer.Email, TestData);
         }
 
-        [TestMethod]
-        public void OrderNoOK()
-        {
-            clsCustomer Customer = new clsCustomer();
-            Int32 TestData = 5555;
-            Customer.OrderNo = TestData;
-            Assert.AreEqual(Customer.OrderNo, TestData);
-        }
+    /* [TestMethod]
+     public void OrderNoOK()
+     {
+         clsCustomer Customer = new clsCustomer();
+         Int32 TestData = 5555;
+         Customer.OrderNo = TestData;
+         Assert.AreEqual(Customer.OrderNo, TestData);
+     } */
 
-        [TestMethod]
+    [TestMethod]
         public void PhoneNumberOK()
         {
             clsCustomer Customer = new clsCustomer();
@@ -85,9 +105,13 @@ namespace Testing2
         [TestMethod]
         public void DateOK()
         {
+            //create an instance for the class we want to create
             clsCustomer Customer = new clsCustomer();
+            //create some test data and assign it to the property
             DateTime TestData = DateTime.Now.Date;
+            //assign the data to the property
             Customer.Date = TestData;
+            //test to see if the values are the same
             Assert.AreEqual(Customer.Date, TestData);
         }
         [TestMethod]
@@ -262,6 +286,15 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+
+
+
+
+
+
+
+
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -269,7 +302,7 @@ namespace Testing2
             clsCustomer Customer = new clsCustomer();
             //String variable to store the Error message
             String Error = "";
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
             Assert.AreEqual(Error, "");
         }
         public void AddressMin()
@@ -281,7 +314,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "a"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -296,7 +329,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -312,7 +345,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaaaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -327,7 +360,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaaaaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -343,7 +376,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -352,3 +385,5 @@ namespace Testing2
     }
 
 }
+
+
