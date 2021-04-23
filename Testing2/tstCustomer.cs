@@ -15,13 +15,32 @@ namespace Testing2
         String OrderNo = 5555.ToString();
         String CustomerID = 1.ToString();
 
+    
+    
         [TestMethod]
         public void InstanceOK()
         {
+            //create an instance of the class we want to create
             clsCustomer Customer = new clsCustomer();
+            //Test to see if it exists
             Assert.IsNotNull(Customer);
         }
-        [TestMethod]
+    
+
+    [TestMethod]
+    public void ActivePropertyOK()
+    {
+        //create an instance of the class we want to create
+        clsCustomer Customer = new clsCustomer();
+        //create some test data
+        Boolean TestData = true;
+        //Assign data to property
+        Customer.Active = TestData;
+        //Test to see if the two values are the same
+        Assert.AreEqual(Customer.Active, TestData);
+
+    }
+    [TestMethod]
         public void ProductNoOK()
         {
             clsCustomer Customer = new clsCustomer();
@@ -57,16 +76,16 @@ namespace Testing2
             Assert.AreEqual(Customer.Email, TestData);
         }
 
-        [TestMethod]
-        public void OrderNoOK()
-        {
-            clsCustomer Customer = new clsCustomer();
-            Int32 TestData = 5555;
-            Customer.OrderNo = TestData;
-            Assert.AreEqual(Customer.OrderNo, TestData);
-        }
+    /* [TestMethod]
+     public void OrderNoOK()
+     {
+         clsCustomer Customer = new clsCustomer();
+         Int32 TestData = 5555;
+         Customer.OrderNo = TestData;
+         Assert.AreEqual(Customer.OrderNo, TestData);
+     } */
 
-        [TestMethod]
+    [TestMethod]
         public void PhoneNumberOK()
         {
             clsCustomer Customer = new clsCustomer();
@@ -85,9 +104,13 @@ namespace Testing2
         [TestMethod]
         public void DateOK()
         {
+            //create an instance for the class we want to create
             clsCustomer Customer = new clsCustomer();
+            //create some test data and assign it to the property
             DateTime TestData = DateTime.Now.Date;
+            //assign the data to the property
             Customer.Date = TestData;
+            //test to see if the values are the same
             Assert.AreEqual(Customer.Date, TestData);
         }
         [TestMethod]
@@ -352,3 +375,5 @@ namespace Testing2
     }
 
 }
+
+

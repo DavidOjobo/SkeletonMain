@@ -132,6 +132,8 @@ namespace ClassLibrary
 
         }
 
+        public bool Active { get; set; }
+
         public bool Find(int ProductNo)
         {
             //create an instance of the data connection
