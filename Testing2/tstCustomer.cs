@@ -12,8 +12,9 @@ namespace Testing2
         String Email = "abcde@hotmail.com";
         String Address = "96 Waterloo Road";
         String Date = DateTime.Now.Date.ToString();
-        String OrderNo = 5555.ToString();
+        //String OrderNo = 5555.ToString();
         String CustomerID = 1.ToString();
+        //String Active = Boolean.ToString();
 
     
     
@@ -285,6 +286,15 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+
+
+
+
+
+
+
+
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -292,7 +302,7 @@ namespace Testing2
             clsCustomer Customer = new clsCustomer();
             //String variable to store the Error message
             String Error = "";
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
             Assert.AreEqual(Error, "");
         }
         public void AddressMin()
@@ -304,7 +314,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "a"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -319,7 +329,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -335,7 +345,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaaaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -350,7 +360,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaaaaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -366,7 +376,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, OrderNo, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }

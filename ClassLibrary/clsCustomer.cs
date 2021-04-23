@@ -168,7 +168,7 @@ namespace ClassLibrary
 
     }
 
-        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string orderNo, string customerID)
+        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string customerID)
         {
             String Error = "";
             DateTime DateTemp;
