@@ -43,7 +43,7 @@ namespace Testing2
         public void FullNameOK()
         {
             clsCustomer Customer = new clsCustomer();
-            String TestData = "Full Name";
+            String TestData = "FullName";
             Customer.FullName = TestData;
             Assert.AreEqual(Customer.FullName, TestData);
         }
