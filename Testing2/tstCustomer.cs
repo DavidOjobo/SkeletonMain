@@ -124,6 +124,12 @@ namespace Testing2
             //test to see if the values are the same
             Assert.AreEqual(Customer.Date, TestData);
         }
+
+
+
+
+
+
         [TestMethod]
         public void FindMethodOK()
         { 
