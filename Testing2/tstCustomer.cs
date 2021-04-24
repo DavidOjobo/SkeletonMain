@@ -7,17 +7,18 @@ namespace Testing2
     [TestClass]
     public class tstCustomer
     {
-        String FullName = "John Smith";
-        String PhoneNumber = 01234567891.ToString();
-        String Email = "abcde@hotmail.com";
-        String Address = "96 Waterloo Road";
+        String FullName = "Some Name";
+        String PhoneNumber = 09876543210.ToString();
+        String Email = "Some@Test.com";
+        String Address = "2 Some Street";
         String Date = DateTime.Now.Date.ToString();
         //String OrderNo = 5555.ToString();
         String CustomerID = 1.ToString();
+        String PostCode = "TTT TTT";
         //String Active = Boolean.ToString();
 
-    
-    
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -389,7 +390,7 @@ namespace Testing2
             clsCustomer Customer = new clsCustomer();
             //String variable to store the Error message
             String Error = "";
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, PostCode);
             Assert.AreEqual(Error, "");
         }
         public void AddressMin()
