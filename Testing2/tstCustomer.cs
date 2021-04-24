@@ -182,7 +182,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.ProductNo != 1)
+            if (Customer.ProductNo != 2)
             {
                 OK = false;
             }
@@ -208,7 +208,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.FullName != "Full Name")
+            if (Customer.FullName != "Test Name")
             {
                 OK = false;
             }
@@ -231,7 +231,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.Email != "Email@outlook.com")
+            if (Customer.Email != "Test@outlook.com")
             {
                 OK = false;
             }
@@ -278,7 +278,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.PhoneNumber != "079338432901") 
+            if (Customer.PhoneNumber != "01234567891") 
             {
                 OK = false;
             }
@@ -300,7 +300,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.Address != "12 Smith Road")
+            if (Customer.Address != "1 Test Street")
             {
                 OK = false;
             }
@@ -352,6 +352,30 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+
+        [TestMethod]
+        public void TestPostCodeFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer Customer = new clsCustomer();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = Customer.Find(CustomerID);
+            //check the address no
+            if (Customer.PostCode != "XXX XXX")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
 
 
 
