@@ -182,7 +182,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.ProductNo != 2)
+            if (Customer.ProductNo != 21)
             {
                 OK = false;
             }

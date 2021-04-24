@@ -174,21 +174,23 @@ namespace ClassLibrary
             //add the parameter for the address no to search for
             DB.AddParameter("@CustomerID", CustomerID);
             //Execute the stored procedure
-            DB.Execute("sproc_tbl_Customer_FJ_FilterByProductNo");
-            if(DB.Count == 1)
-                
-                {
-                    mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
-                    mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
-                    mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
-                    mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                    mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                    mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
-                    mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
-                    mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
-                    //mActive = Convert.ToString(DB.DataTable.Rows[0]["Active"]);
-                    //copy the data from the database to the private data members
-                    return true;
+            DB.Execute("sproc_tbl_Customer_FJ_FilterByCustomerID");
+            if (DB.Count == 1)
+
+            {
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
+                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
+                //mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+
+                //copy the data from the database to the private data members
+                return true;
                 }
                 //if no record was found
                 else
