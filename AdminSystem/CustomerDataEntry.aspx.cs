@@ -58,8 +58,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture the PhoneNumber
         string PhoneNumber = txtPhoneNo.Text;
         string Address = txtAddress.Text;
+        string PostCode = txtPostCode.Text;
         //capture the OrderNo
-        int OrderNo = Convert.ToInt32(txtOrderNo.Text);
+        //int OrderNo = Convert.ToInt32(txtOrderNo.Text);
         //capture the CustomerID
         int CustomerID = Convert.ToInt32(txtCustomerID.Text);
         // capture Date added
@@ -67,7 +68,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // varlable to store any error messages
         string Error = "";
         //validate the data
-        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, OrderNo, CustomerID); 
+        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, CustomerID); 
         if (Error == "")
         {
             // capture the Full Name
@@ -76,9 +77,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
             Customer.Email = Email;
             // capture the Address
             Customer.Address = Address;
+            Customer.PostCode = PostCode;
             //capture the OrderNo
-            Customer.OrderNo = OrderNo;
+            //Customer.OrderNo = OrderNo;
             Customer.PhoneNumber = PhoneNumber;
+            
             // capture the CustomID
             Customer.CustomerID = CustomerID;
             //I capture date added
@@ -138,4 +141,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
+
+    protected void chkActive_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
 }
