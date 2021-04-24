@@ -102,6 +102,16 @@ namespace Testing2
             Customer.Address = TestData;
             Assert.AreEqual(Customer.Address, TestData);
         }
+
+        [TestMethod]
+        public void PostCodeOK()
+        {
+            clsCustomer Customer = new clsCustomer();
+            String TestData = "LE1 5NY";
+            Customer.PostCode = TestData;
+            Assert.AreEqual(Customer.PostCode, TestData);
+        }
+
         [TestMethod]
         public void DateOK()
         {
