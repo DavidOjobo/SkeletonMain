@@ -182,7 +182,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.ProductNo != 1)
+            if (Customer.ProductNo != 2)
             {
                 OK = false;
             }
@@ -208,7 +208,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.FullName != "Full Name")
+            if (Customer.FullName != "Test Name")
             {
                 OK = false;
             }
@@ -231,7 +231,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.Email != "Email@outlook.com")
+            if (Customer.Email != "Test@outlook.com")
             {
                 OK = false;
             }
@@ -278,7 +278,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.PhoneNumber != "079338432901") 
+            if (Customer.PhoneNumber != "01234567891") 
             {
                 OK = false;
             }
@@ -300,7 +300,7 @@ namespace Testing2
             //invoke the method
             Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.Address != "12 Smith Road")
+            if (Customer.Address != "1 Test Street")
             {
                 OK = false;
             }
