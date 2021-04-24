@@ -97,10 +97,7 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(string fullName, string email, string address, string phoneNumber, string date, int orderNo, int customerID)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         private String mAddress;
         public string Address
@@ -116,6 +113,10 @@ namespace ClassLibrary
             }
 
         }
+
+       
+
+        
 
         private DateTime mDate;
         public DateTime Date
@@ -134,6 +135,14 @@ namespace ClassLibrary
 
         public bool Active { get; set; }
 
+        public string PostCode { get; set; }
+
+
+
+        public string Valid(string fullName, string email, string address, string phoneNumber, string date, int orderNo, int customerID)
+        {
+            throw new NotImplementedException();
+        }
         public bool Find(int ProductNo)
         {
             //create an instance of the data connection
