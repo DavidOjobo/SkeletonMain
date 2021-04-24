@@ -30,7 +30,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtProductNo.Text = CustomerBook.ThisCustomer.ProductNo.ToString();
         txtFullName.Text = CustomerBook.ThisCustomer.FullName;
         txtEmail.Text = CustomerBook.ThisCustomer.Email;
-        txtOrderNo.Text = CustomerBook.ThisCustomer.OrderNo.ToString();
+        //txtOrderNo.Text = CustomerBook.ThisCustomer.OrderNo.ToString();
         txtCustomerID.Text = CustomerBook.ThisCustomer.CustomerID.ToString();
         txtPhoneNo.Text = CustomerBook.ThisCustomer.PhoneNumber.ToString();
         txtAddress.Text = CustomerBook.ThisCustomer.Address;
@@ -68,7 +68,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // varlable to store any error messages
         string Error = "";
         //validate the data
-        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, CustomerID); 
+        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date); 
         if (Error == "")
         {
             // capture the Full Name

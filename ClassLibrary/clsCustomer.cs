@@ -8,7 +8,7 @@ namespace ClassLibrary
 
 
 
-        public int ProductNo
+        public Int32 ProductNo
         {
             get
             {
@@ -23,7 +23,7 @@ namespace ClassLibrary
         }
 
         private int mCustomerID;
-        public int CustomerID
+        public Int32 CustomerID
         {
             get
             {
@@ -37,7 +37,7 @@ namespace ClassLibrary
 
         }
 
-        private String mFullName;
+        private string mFullName;
         public string FullName
         {
             get
@@ -52,7 +52,7 @@ namespace ClassLibrary
 
         }
 
-        private String mEmail;
+        private string mEmail;
         public string Email
         {
             get
@@ -99,7 +99,7 @@ namespace ClassLibrary
 
       
 
-        private String mAddress;
+        private string mAddress;
         public string Address
         {
             get
@@ -133,24 +133,48 @@ namespace ClassLibrary
 
         }
 
-        public bool Active { get; set; }
 
-        public string PostCode { get; set; }
+        private Boolean mActive;
+        public bool Active
+        {
+            get
+            {
+                return mActive;
+            }
+            set
+            {
+                mActive = value;
+            }
+        }
+
+
+        private string mPostCode;
+        public string PostCode
+        {
+            get
+            {
+                return mPostCode;
+            }
+            set
+            {
+                mPostCode = value;
+            }
+        }
 
 
 
-        public string Valid(string fullName, string email, string address, string phoneNumber, string date, int orderNo, int customerID)
+        public string Valid(string fullName, string email, string address, string phoneNumber, string date)
         {
             throw new NotImplementedException();
         }
-        public bool Find(int ProductNo)
+        public bool Find(int CustomerID)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the address no to search for
-            DB.AddParameter("@ProductNo", ProductNo);
+            DB.AddParameter("@CustomerID", CustomerID);
             //Execute the stored procedure
-            DB.Execute("sproc_tblCustomer_FJ_FilterByProductNo");
+            DB.Execute("sproc_tbl_Customer_FJ_FilterByProductNo");
             if(DB.Count == 1)
                 
                 {
@@ -162,6 +186,7 @@ namespace ClassLibrary
                     mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
                     mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
                     mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                    //mActive = Convert.ToString(DB.DataTable.Rows[0]["Active"]);
                     //copy the data from the database to the private data members
                     return true;
                 }

@@ -135,12 +135,16 @@ namespace Testing2
         { 
             clsCustomer Customer = new clsCustomer();
             Boolean Found = false;
-            Int32 ProductNo = 1;
-            Found = Customer.Find(ProductNo);
+            Int32 CustomerID = 1;
+            Found = Customer.Find(CustomerID);
             Assert.IsTrue(Found);
         }
+
+
+
+
         [TestMethod]
-        public void TestProductNoFoundOK()
+        public void TestCustomerIDFound()
         {
             //create an instance of the class we want to create
             clsCustomer Customer = new clsCustomer();
@@ -149,9 +153,34 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-             Int32 ProductNo = 1;
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = Customer.Find(ProductNo);
+            Found = Customer.Find(CustomerID);
+            //check the address no
+            if (Customer.CustomerID != 1)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+
+
+
+        [TestMethod]
+        public void TestProductNoFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer Customer = new clsCustomer();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = Customer.Find(CustomerID);
             //check the address no
             if (Customer.ProductNo != 1)
             {
@@ -160,28 +189,13 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
-        public void TestCustomerID()
-        {
-            //create an instance of the class we want to create
-            clsCustomer Customer = new clsCustomer();
-            //boolean variable to store the result of the search
-            Boolean Found = false;
-            //boolean variable to record if data is OK (assume it is)
-            Boolean OK = true;
-            //create some test data to use with the method
-            Int32 ProductNo = 1;
-            //invoke the method
-            Found = Customer.Find(ProductNo);
-            //check the address no
-            if (Customer.CustomerID != 2)
-            {
-                OK = false;
-            }
-            //test to see that the result is correct
-            Assert.IsTrue(OK);
-        }
 
-        public void TestFullNameOK()
+
+       
+
+
+        [TestMethod]
+        public void TestFullNameFound()
         {
             //create an instance of the class we want to create
             clsCustomer Customer = new clsCustomer();
@@ -190,9 +204,9 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductNo = 1;
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = Customer.Find(ProductNo);
+            Found = Customer.Find(CustomerID);
             //check the address no
             if (Customer.FullName != "Full Name")
             {
@@ -201,7 +215,10 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
-        public void TestEmailOK()
+
+
+        [TestMethod]
+        public void TestEmailFound()
         {
             //create an instance of the class we want to create
             clsCustomer Customer = new clsCustomer();
@@ -210,11 +227,11 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductNo = 1;
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = Customer.Find(ProductNo);
+            Found = Customer.Find(CustomerID);
             //check the address no
-            if (Customer.Email != "Email@")
+            if (Customer.Email != "Email@outlook.com")
             {
                 OK = false;
             }
@@ -222,6 +239,8 @@ namespace Testing2
             Assert.IsTrue(OK);
         }
 
+
+        /* [TestMethod]
         public void TestOrderNo()
         {
             //create an instance of the class we want to create
@@ -242,7 +261,11 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
-        public void TestPhoneNumberOK()
+
+        */
+
+        [TestMethod]
+        public void TestPhoneNumberFound()
         {
             //create an instance of the class we want to create
             clsCustomer Customer = new clsCustomer();
@@ -251,9 +274,9 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductNo = 1;
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = Customer.Find(ProductNo);
+            Found = Customer.Find(CustomerID);
             //check the address no
             if (Customer.PhoneNumber != "079338432901") 
             {
@@ -262,7 +285,9 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
-        public void TestAddressOK()
+
+        [TestMethod]
+        public void TestAddressFound()
         {
             //create an instance of the class we want to create
             clsCustomer Customer = new clsCustomer();
@@ -271,9 +296,9 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductNo = 1;
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = Customer.Find(ProductNo);
+            Found = Customer.Find(CustomerID);
             //check the address no
             if (Customer.Address != "12 Smith Road")
             {
@@ -282,6 +307,8 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
         public void TestDateOK()
         {
             //create an instance of the class we want to create
@@ -291,9 +318,9 @@ namespace Testing2
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductNo = 1;
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = Customer.Find(ProductNo);
+            Found = Customer.Find(CustomerID);
             //check the address no
             if (Customer.Date != Convert.ToDateTime("01/01/2021"))
             {
@@ -304,7 +331,27 @@ namespace Testing2
         }
 
 
-
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer Customer = new clsCustomer();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = Customer.Find(CustomerID);
+            //check the address no
+            if (Customer.Active != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
 
 
 
