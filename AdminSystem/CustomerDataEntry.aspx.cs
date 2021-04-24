@@ -30,6 +30,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtProductNo.Text = CustomerBook.ThisCustomer.ProductNo.ToString();
         txtFullName.Text = CustomerBook.ThisCustomer.FullName;
         txtEmail.Text = CustomerBook.ThisCustomer.Email;
+        txtPostCode.Text = CustomerBook.ThisCustomer.PostCode;
         //txtOrderNo.Text = CustomerBook.ThisCustomer.OrderNo.ToString();
         txtCustomerID.Text = CustomerBook.ThisCustomer.CustomerID.ToString();
         txtPhoneNo.Text = CustomerBook.ThisCustomer.PhoneNumber.ToString();
@@ -68,7 +69,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // varlable to store any error messages
         string Error = "";
         //validate the data
-        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date); 
+        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, PostCode); 
         if (Error == "")
         {
             // capture the Full Name
@@ -119,20 +120,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     {
         clsCustomer Customer = new clsCustomer();
-        Int32 ProductNo;
+        Int32 CustomerID;
         Boolean Found = false;
-        ProductNo = Convert.ToInt32(txtProductNo.Text);
-        Found = Customer.Find(ProductNo);
+        CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        Found = Customer.Find(CustomerID);
 
         if (Found == true)
         {
+            txtCustomerID.Text = Customer.CustomerID.ToString();
             txtProductNo.Text = Customer.ProductNo.ToString();
             txtFullName.Text = Customer.FullName;
             txtEmail.Text = Customer.Email;
             txtOrderNo.Text = Customer.OrderNo.ToString();
-            txtCustomerID.Text = Customer.CustomerID.ToString();
             txtPhoneNo.Text = Customer.PhoneNumber.ToString();
             txtAddress.Text = Customer.Address;
+            txtPostCode.Text = Customer.PostCode;
             txtDate.Text = Customer.Date.ToString();
 
 
