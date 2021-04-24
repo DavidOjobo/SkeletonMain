@@ -354,6 +354,30 @@ namespace Testing2
         }
 
 
+        [TestMethod]
+        public void TestPostCodeFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer Customer = new clsCustomer();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = Customer.Find(CustomerID);
+            //check the address no
+            if (Customer.PostCode != "XXX XXX")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+
+
 
 
 
