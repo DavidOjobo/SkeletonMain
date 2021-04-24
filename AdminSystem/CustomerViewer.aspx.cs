@@ -13,7 +13,7 @@ public partial class _1Viewer : System.Web.UI.Page
         
             clsCustomer Customer = new clsCustomer();
             Customer = (clsCustomer)Session["Customer"];
-            Response.Write(Customer.ProductNo);
+            Response.Write(Customer.CustomerID);
         
     }
 }
