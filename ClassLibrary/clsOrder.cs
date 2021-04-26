@@ -88,13 +88,62 @@ namespace ClassLibrary
 
         public bool Find(int productNo)
         {
-            mProductNo = 1;
-            mProductName = "kenny";
-            mOrderNo = 1; 
-            mPrice = 84.000;
-            mDate = Convert.ToDateTime("01/01/21");
-            mDispatched = true;
-        return true;
+            // create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the address no to search fror
+            DB.AddParameter("@productNo", ProductNo);
+            //executethe stored procedure
+            DB.Execute("sproc_tblOrder_FilterByProductNo");
+            //if one record is found  (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members 
+                mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
+                mProductName = Convert.ToString(DB.DataTable.Rows[0]["ProductName"]);
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                mDate= Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mDispatched = Convert.ToBoolean(DB.DataTable.Rows[0]["Dispatched"]);
+                //return that everything worked ok
+                return true;
+            }
+            //if no record was founnd
+            else
+            {
+                return false;
+            }
+           
+            
         }
-    }
+        
+        }
+        
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
