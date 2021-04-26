@@ -33,7 +33,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtPostCode.Text = CustomerBook.ThisCustomer.PostCode;
         //txtOrderNo.Text = CustomerBook.ThisCustomer.OrderNo.ToString();
         txtCustomerID.Text = CustomerBook.ThisCustomer.CustomerID.ToString();
-        txtPhoneNo.Text = CustomerBook.ThisCustomer.PhoneNumber.ToString();
+        txtPhoneNo.Text = CustomerBook.ThisCustomer.PhoneNumber;
         txtAddress.Text = CustomerBook.ThisCustomer.Address;
         txtDate.Text = CustomerBook.ThisCustomer.Date.ToString();
 

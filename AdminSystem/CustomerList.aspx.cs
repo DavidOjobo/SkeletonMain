@@ -19,7 +19,7 @@ public partial class _1_List : System.Web.UI.Page
     {
         ClassLibrary.clsCustomerCollection AllCustomers = new ClassLibrary.clsCustomerCollection();
         lstCustomerList.DataSource = AllCustomers.CustomerList;
-        lstCustomerList.DataValueField = "ProductNo";
+        lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataTextField = "Address";
         lstCustomerList.DataBind();
     }
@@ -27,17 +27,17 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        Session["ProductNo"] = -1;
+        Session["CustomerID"] = -1;
         Response.Redirect("CustomerDataEntry.aspx");
     }
 
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        Int32 ProductNo;
+        Int32 CustomerID;
         if (lstCustomerList.SelectedIndex != 1)
         {
-            ProductNo = Convert.ToInt32(lstCustomerList.SelectedValue);
-            Session["ProductNo"] = ProductNo;
+            CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
+            Session["CustomerID"] = CustomerID;
             Response.Redirect("CustomerDataEntry.aspx");
 
         }

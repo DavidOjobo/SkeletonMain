@@ -8,7 +8,7 @@ namespace Testing2
     public class tstCustomer
     {
         String FullName = "Some Name";
-        String PhoneNumber = 09876543210.ToString();
+        String PhoneNumber = "09876543210";
         String Email = "Some@Test.com";
         String Address = "2 Some Street";
         String Date = DateTime.Now.Date.ToString();
