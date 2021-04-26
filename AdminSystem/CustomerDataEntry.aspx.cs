@@ -8,25 +8,25 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-    Int32 ProductNo;
+    Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        ProductNo = Convert.ToInt32(Session["ProductNo"]);
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
         if (IsPostBack == false)
         {
-            if (ProductNo != -1)
+            if (CustomerID != -1)
             {
-                DisplayProduct();
+                DisplayCustomer();
             }
 
         }
 
     }
 
-    void DisplayProduct()
+    void DisplayCustomer()
     {
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
-        CustomerBook.ThisCustomer.Find(ProductNo);
+        CustomerBook.ThisCustomer.Find(CustomerID);
         txtProductNo.Text = CustomerBook.ThisCustomer.ProductNo.ToString();
         txtFullName.Text = CustomerBook.ThisCustomer.FullName;
         txtEmail.Text = CustomerBook.ThisCustomer.Email;
@@ -90,7 +90,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //store the address in the session object
             clsCustomerCollection CustomerList = new clsCustomerCollection();
 
-            if (ProductNo == -1)
+            if (CustomerID == -1)
             {
                 CustomerList.ThisCustomer = Customer;
                 CustomerList.Add();
@@ -98,7 +98,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             
             else
             {
-                CustomerList.ThisCustomer.Find(ProductNo);
+                CustomerList.ThisCustomer.Find(CustomerID);
                 CustomerList.ThisCustomer = Customer;
                 CustomerList.Update();
             }

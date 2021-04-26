@@ -178,13 +178,13 @@ namespace ClassLibrary
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                 mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
                 mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
-                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                    mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                    mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
                     //mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
-                    mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
-                    mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
-                    mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                
                 //copy the data from the database to the private data members
                 return true;
@@ -201,7 +201,7 @@ namespace ClassLibrary
 
     }
 
-        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string PostCode)
+        public string Valid(string FullName, string email, string PhoneNumber, string date, string address, string PostCode)
         {
             String Error = "";
             DateTime DateTemp;

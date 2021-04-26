@@ -20,7 +20,7 @@ namespace ClassLibrary
             //Object for Data Connection
             clsDataConnection DB = new clsDataConnection();
             //Execute the stored procedure
-            DB.Execute("sproc_tblCustomer_FJ_SelectAll");
+            DB.Execute("sproc_tbl_Customer_FJ_SelectAll");
             //Get Count for records
             RecordCount = DB.Count;
             //While there are records to process
@@ -87,13 +87,14 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@FullName", mThisCustomer.FullName);
             DB.AddParameter("@Email", mThisCustomer.Email);
-            DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
+            //DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
             DB.AddParameter("@Address", mThisCustomer.Address);
-            //DB.AddParameter("@Active", mThisCustomer.Active);
-            return DB.Execute("sproc_tblCustomer_FJ_Insert");
+            DB.AddParameter("@PostCode", mThisCustomer.PostCode);
+            DB.AddParameter("@Active", mThisCustomer.Active);
+            return DB.Execute("sproc_tbl_Customer_FJ_Insert");
 
 
 
@@ -104,22 +105,23 @@ namespace ClassLibrary
             DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
             DB.AddParameter("@FullName", mThisCustomer.FullName);
             DB.AddParameter("@Address", mThisCustomer.Address);
+            DB.AddParameter("@PostCode", mThisCustomer.PostCode);
             DB.AddParameter("@Email", mThisCustomer.Email);
             DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
-            //DB.AddParameter("@Active", mThisCustomer.Active);
-            return DB.Execute("sproc_tblCustomer_FJ_Update");
+            DB.AddParameter("@Active", mThisCustomer.Active);
+            return DB.Execute("sproc_tbl_Customer_FJ_Update");
 
 
         }
         public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             //DB.AddParameter("@Active", mThisCustomer.Active);
-            DB.Execute("sproc_tblCustomer_FJ_Delete");
+            DB.Execute("sproc_tbl_Customer_FJ_Delete");
 
 
         }
@@ -132,7 +134,7 @@ namespace ClassLibrary
             //Send the Full Name parameter to the database
             DB.AddParameter("@FullName", FullName);
             //Execute the stored procedure
-            DB.Execute("sproc_tblCustomer_FJ_FilterByFullName");
+            DB.Execute("sproc_tbl_Customer_FJ_FilterByFullName");
             PopulateArray(DB);
         }
 
