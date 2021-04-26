@@ -91,9 +91,9 @@ namespace ClassLibrary
             // create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the address no to search fror
-            DB.AddParameter("@addressNo", AddressNo);
+            DB.AddParameter("@productNo", ProductNo);
             //executethe stored procedure
-            DB.Execute("sproc_tblAddress_FilterByAddressNo");
+            DB.Execute("sproc_tblOrder_FilterByProductNo");
             //if one record is found  (there should be either one or zero!)
             if (DB.Count == 1)
             {
