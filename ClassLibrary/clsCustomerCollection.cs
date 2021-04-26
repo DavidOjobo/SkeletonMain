@@ -86,6 +86,7 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@FullName", mThisCustomer.FullName);
+            DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
             DB.AddParameter("@Email", mThisCustomer.Email);
             //DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
@@ -107,8 +108,8 @@ namespace ClassLibrary
             DB.AddParameter("@Address", mThisCustomer.Address);
             DB.AddParameter("@PostCode", mThisCustomer.PostCode);
             DB.AddParameter("@Email", mThisCustomer.Email);
-            DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
-            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            //DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
+           // DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
             DB.AddParameter("@Active", mThisCustomer.Active);

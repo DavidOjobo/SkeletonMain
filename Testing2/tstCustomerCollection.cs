@@ -84,11 +84,11 @@ namespace Testing2
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             clsCustomer TestItem = new clsCustomer();
             //TestItem.Active = true;
+            TestItem.CustomerID = 1;
             TestItem.ProductNo = 23;
             TestItem.PhoneNumber = "100000000000";
             TestItem.FullName = "Bob Smith";
-            TestItem.Email = "JackTim@Lonely.com";
-            TestItem.CustomerID = 1;
+            TestItem.Email = "JackTim@Lonely.com";    
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "6 Cool Road";
             TestItem.PostCode = "LE1 9NS";
@@ -122,12 +122,12 @@ namespace Testing2
             //TestItem.OrderNo = 1;
             AllCustomers.ThisCustomer = TestItem;
             PrimaryKey = AllCustomers.Add();
-            TestItem.ProductNo = PrimaryKey;
+            TestItem.CustomerID = PrimaryKey;
             //modify test data
             TestItem.PhoneNumber = "999999999999";
             TestItem.FullName = "John Smith";
             TestItem.Email = "Bobby@ishfs.com";
-            TestItem.CustomerID = 3;
+            TestItem.ProductNo = 60;
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "90 Hamilton Road LE5 J3D";
             TestItem.PostCode = "LE1 0NN";
