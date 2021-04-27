@@ -93,11 +93,10 @@ namespace ClassLibrary
             //create instance of class
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@ProductNo", ProductNo);
-            DB.Execute("[dbo].sproc_tblQuality_FilterByProductNo");
+            DB.Execute("sproc_tblStock_FilterByProductNo");
             if (DB.Count == 1)
             {
                 mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
-                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
                 mQuantityOrdered = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityOrdered"]);
                 mQuantityInStock = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityInStock"]);
                 mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
