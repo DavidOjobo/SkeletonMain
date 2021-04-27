@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <asp:Label ID="lblProductNo" runat="server" Text=" Product Number" height="19px" width="121px"></asp:Label>
         <asp:TextBox ID="txtProductNo" runat="server"></asp:TextBox>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         <br />
         <div>
         <asp:Label ID="lblProductName" runat="server" Text="Product Name" width="121px"></asp:Label>
@@ -18,7 +19,7 @@
             <br />
         </div>
             <asp:Label ID="lblQuantityInStock" runat="server" Text="Quantity In Stock" height="19px" width="121px"></asp:Label>
-        <asp:TextBox ID="txtProductInStock" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtQuantityInStock" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblQuantityOrdered" runat="server" height="19px" Text="Quantity Ordered" width="121px"></asp:Label>
             <asp:TextBox ID="txtQuantityOrdered" runat="server"></asp:TextBox>
