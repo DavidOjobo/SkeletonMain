@@ -24,6 +24,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
-
+        clsStock StockManagement = new clsStock();
+        Int32 ProductNo;
+        Boolean Found = false;
+        ProductNo = Convert.ToInt32(txtProductNo.Text);
+        Found = StockManagement.Find(ProductNo);
+        if (Found == true)
+        {
+            txtProductNo.Text = StockManagement.ProductNo.ToString();
+            txtPrice.Text = StockManagement.Price.ToString();
+            txtQuantityOrdered.Text = StockManagement.QuantityOrdered.ToString();
+            txtDate.Text = StockManagement.Date.ToString();
+            txtProductName.Text = StockManagement.ProductName;
+            txtQuantityOrdered.Text = StockManagement.QuantityInStock.ToString();
+        }
     }
 }

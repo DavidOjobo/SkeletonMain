@@ -110,6 +110,11 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string productName, string productNo, string price, string quantityInStock, string date, string quantityOrdered)
+        {
+            return "";
+        }
     }
 }
     

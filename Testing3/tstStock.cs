@@ -7,7 +7,16 @@ namespace Testing3
     [TestClass]
     public class tstStock
     {
-        [TestMethod]
+        
+            String ProductName = "Nike";
+            String ProductNo = 1.ToString();
+            String Price = 1.00.ToString();
+            String Date = DateTime.Now.Date.ToString();
+            String QuantityOrdered = 1.ToString();
+            String QuantityInStock = 1.ToString();
+        
+
+            [TestMethod]
         public void InstanceOK()
         {
             clsStock StockManagement = new clsStock();
@@ -198,5 +207,85 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            Error = StockManagement.Valid( ProductName, ProductNo, Price, Date, QuantityOrdered, QuantityInStock );
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMinLessOne()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            string ProductName = "";
+            Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMin()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            string ProductName = "a";
+            Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMinPlusOne()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            string ProductName = "aa";
+            Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMaxLess1()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            string ProductName = "";
+            ProductName = ProductName.PadRight(19, 'a');
+            Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMax()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            string ProductName = "";
+            ProductName = ProductName.PadRight(20, 'a');
+            Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMaxPlusOne()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            string ProductName = "";
+            Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductNameMid()
+        {
+            clsStock StockManagement = new clsStock();
+            String Error = "";
+            string ProductName = "";
+            ProductName = ProductName.PadRight(10, 'a');
+            Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
     }
 }
+
+    
+
+
