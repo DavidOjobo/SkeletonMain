@@ -5,10 +5,8 @@ namespace ClassLibrary
     public class clsCustomer
     {
         private int mProductNo;
-
-
-
-        public Int32 ProductNo
+    
+        public int ProductNo
         {
             get
             {
@@ -23,7 +21,7 @@ namespace ClassLibrary
         }
 
         private int mCustomerID;
-        public Int32 CustomerID
+        public int CustomerID
         {
             get
             {
@@ -201,7 +199,7 @@ namespace ClassLibrary
 
     }
 
-        public string Valid(string FullName, string email, string PhoneNumber, string date, string address, string PostCode)
+        public string Valid(string FullName, string email, string PhoneNumber, string date, string address, string PostCode, int ProductNo)
         {
             String Error = "";
             DateTime DateTemp;
@@ -231,6 +229,11 @@ namespace ClassLibrary
                 }
             }
 
+        }
+
+        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string postCode, string productNo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

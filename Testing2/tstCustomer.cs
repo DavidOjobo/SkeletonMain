@@ -13,6 +13,7 @@ namespace Testing2
         String Address = "2 Some Street";
         String Date = DateTime.Now.Date.ToString();
         //String OrderNo = 5555.ToString();
+        String ProductNo = 25.ToString();
         String CustomerID = 1.ToString();
         String PostCode = "TTT TTT";
         //String Active = Boolean.ToString();
@@ -390,7 +391,7 @@ namespace Testing2
             clsCustomer Customer = new clsCustomer();
             //String variable to store the Error message
             String Error = "";
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, PostCode);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, PostCode, ProductNo);
             Assert.AreEqual(Error, "");
         }
         public void AddressMin()
@@ -402,7 +403,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "a"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID, ProductNo);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -417,7 +418,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID, ProductNo);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -433,7 +434,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaaaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID, ProductNo);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -448,7 +449,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaaaaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID, ProductNo);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -464,7 +465,7 @@ namespace Testing2
             //create some test data to pass to the method
             string Address = "aaa"; //this should be ok
             //invoke the method
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, CustomerID);
+            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, PostCode, ProductNo);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }

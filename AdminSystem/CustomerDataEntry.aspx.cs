@@ -60,16 +60,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string PhoneNumber = txtPhoneNo.Text;
         string Address = txtAddress.Text;
         string PostCode = txtPostCode.Text;
-        //capture the OrderNo
-        //int OrderNo = Convert.ToInt32(txtOrderNo.Text);
+        int ProductNo = Convert.ToInt32(txtProductNo.Text);
         //capture the CustomerID
-        int CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        //int CustomerID = Convert.ToInt32(txtCustomerID.Text);
         // capture Date added
         string Date = txtDate.Text;
         // varlable to store any error messages
         string Error = "";
         //validate the data
-        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, PostCode); 
+        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, PostCode,ProductNo); 
         if (Error == "")
         {
             // capture the Full Name
@@ -82,9 +81,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the OrderNo
             //Customer.OrderNo = OrderNo;
             Customer.PhoneNumber = PhoneNumber;
-            
-            // capture the CustomID
-            Customer.CustomerID = CustomerID;
+            Customer.Active = chkActive.Checked;
+            // capture the ProductNo
+            Customer.ProductNo = ProductNo;
             //I capture date added
             Customer.Date = Convert.ToDateTime(Date);
             //store the address in the session object
