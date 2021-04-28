@@ -24,11 +24,11 @@ namespace Testing2
             //TestItem.Active = true;
             TestItem.ProductNo = 1;
             TestItem.PhoneNumber = "0000000000001";
-            TestItem.FullName = "Bob Smith";
-            TestItem.Email = "Jsaosfij@ishfs.com";
+            TestItem.FullName = "Customer List";
+            TestItem.Email = "CustomerList@gmail.com";
             TestItem.CustomerID = 1;
             TestItem.Date = DateTime.Now.Date;
-            TestItem.Address = "9 Hamilton Road LE5 J3D";
+            TestItem.Address = "9 Hamilton Road";
             TestItem.OrderNo = 1;
 
             TestList.Add(TestItem);
@@ -64,13 +64,13 @@ namespace Testing2
             clsCustomer TestItem = new clsCustomer();
             //TestItem.Active = true;
             TestItem.ProductNo = 1;
-            TestItem.PhoneNumber = "0777777777777";
-            TestItem.FullName = "Bob Smith";
-            TestItem.Email = "Jsaosfij@ishfs.com";
+            TestItem.PhoneNumber = "71471471471";
+            TestItem.FullName = "List Count";
+            TestItem.Email = "ListCount@gmail.com";
             TestItem.CustomerID = 1;
             TestItem.Date = DateTime.Now.Date;
-            TestItem.Address = "9 Hamilton Road LE5 J3D";
-            TestItem.OrderNo = 1;
+            TestItem.Address = "714 List Avenue";
+            //TestItem.OrderNo = 1;
             TestList.Add(TestItem);
             AllCustomers.CustomerList = TestList;
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
@@ -83,6 +83,7 @@ namespace Testing2
 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             clsCustomer TestItem = new clsCustomer();
+
             //TestItem.Active = true;
             TestItem.CustomerID = 1;
             TestItem.ProductNo = 23;
@@ -112,25 +113,25 @@ namespace Testing2
             Int32 PrimaryKey = 1;
             //TestItem.Active = true;
             TestItem.ProductNo = 1;
-            TestItem.PhoneNumber = "100000000000";
-            TestItem.FullName = "Bob Smith";
-            TestItem.Email = "Jsaosfij@ishfs.com";
+            TestItem.PhoneNumber = "66666666666";
+            TestItem.FullName = "Update Method";
+            TestItem.Email = "UpdateMethod@gmail.com";
             TestItem.CustomerID = 1;
             TestItem.Date = DateTime.Now.Date;
-            TestItem.Address = "9 Hamilton Road";
-            TestItem.PostCode = "LE5 J3D";
+            TestItem.Address = "9 Update Road";
+            TestItem.PostCode = "LE6 6UM";
             //TestItem.OrderNo = 1;
             AllCustomers.ThisCustomer = TestItem;
             PrimaryKey = AllCustomers.Add();
             TestItem.CustomerID = PrimaryKey;
             //modify test data
             TestItem.PhoneNumber = "999999999999";
-            TestItem.FullName = "John Smith";
-            TestItem.Email = "Bobby@ishfs.com";
+            TestItem.FullName = "Done Update";
+            TestItem.Email = "DoneUpdate@gmail.com";
             TestItem.ProductNo = 60;
             TestItem.Date = DateTime.Now.Date;
-            TestItem.Address = "90 Hamilton Road LE5 J3D";
-            TestItem.PostCode = "LE1 0NN";
+            TestItem.Address = "60 Updated Street";
+            TestItem.PostCode = "LE6 9UM";
             //TestItem.OrderNo = 6;
             AllCustomers.ThisCustomer = TestItem;
             AllCustomers.Update();

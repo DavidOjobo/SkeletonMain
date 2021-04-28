@@ -89,7 +89,7 @@ namespace ClassLibrary
             DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
             DB.AddParameter("@Email", mThisCustomer.Email);
             //DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
-            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            //DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
             DB.AddParameter("@Address", mThisCustomer.Address);
