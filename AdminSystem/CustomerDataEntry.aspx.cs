@@ -68,7 +68,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // varlable to store any error messages
         string Error = "";
         //validate the data
-        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, PostCode,ProductNo); 
+        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, PostCode); 
         if (Error == "")
         {
             // capture the Full Name

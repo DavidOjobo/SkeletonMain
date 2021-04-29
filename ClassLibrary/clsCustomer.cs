@@ -198,23 +198,27 @@ namespace ClassLibrary
 
 
     }
-
-        public string Valid(string FullName, string email, string PhoneNumber, string date, string address, string PostCode, int ProductNo)
+        public string Valid(string FullName, string Address, string PostCode, string Email, string Date, string PhoneNumber)
         {
+            //create a string variable to store the error
             String Error = "";
+            //create a temporary variable to store date values
             DateTime DateTemp;
-
-            if (Address.Length == 0)
+            //if the FullName is blank
+            if (FullName.Length == 0)
             {
-                Error = Error + "The address may not be blank";
+                //record the error
+                Error = Error + "The house no may not be blank : ";
             }
-            return Error;
-            
-
-        
+            //if the house no is greater than 6 characters
+            if (FullName.Length < 3)
             {
-                
-                //copy the dateAdded value to the DateTemp variable
+                //record the error
+                Error = Error + "The Full Name must be more than 6 characters : ";
+            }
+            try
+            {
+                //copy the date value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(Date);
                 if (DateTemp < DateTime.Now.Date)
                 {
@@ -228,12 +232,66 @@ namespace ClassLibrary
                     Error = Error + "The date cannot be in the future : ";
                 }
             }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+            //is the post code blank
+            if (PostCode.Length == 0)
+            {
+                //record the error
+                Error = Error + "The post code may not be blank : ";
+            }
+            //if the post code is too long
+            if (PostCode.Length > 10)
+            {
+                //record the error
+                Error = Error + "The post code must be less than 9 characters : ";
+            }
+            //is the Address blank
+            if (Address.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Address may not be blank : ";
+            }
+            //if the Address is too long
+            if (Address.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Address must be less than 50 characters : ";
+            }
+            //is the Email blank
+            if (Email.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Email may not be blank : ";
+            }
+            //if the Email is too long
+            if (Email.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Email must be less than 50 characters : ";
+            }
 
+
+            //is the PhoneNumber blank
+            if (PhoneNumber.Length == 0)
+            {
+                //record the error
+                Error = Error + "The PhoneNumber may not be blank : ";
+            }
+            //if the Email is too long
+            if (PhoneNumber.Length > 20)
+            {
+                //record the error
+                Error = Error + "The Email must be less than 20 characters : ";
+            }
+
+            //return any error messages
+            return Error;
         }
 
-        public string Valid(string fullName, string email, string phoneNumber, string date, string address, string postCode, string productNo)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
