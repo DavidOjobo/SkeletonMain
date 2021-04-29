@@ -115,7 +115,7 @@ namespace Testing2
             TestItem.PhoneNumber = "66666666666";
             TestItem.FullName = "Update Method";
             TestItem.Email = "UpdateMethod@gmail.com";
-            TestItem.CustomerID = 65;
+            TestItem.CustomerID = 70;
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "9 Update Road";
             TestItem.PostCode = "LE6 6UM";
@@ -129,7 +129,8 @@ namespace Testing2
             TestItem.Email = "DoneUpdate@gmail.com";
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "60 Updated Street";
-            TestItem.PostCode = "LE6 9UM";  
+            TestItem.PostCode = "LE6 9UM";
+            TestItem.Active = true;
             AllCustomers.ThisCustomer = TestItem;
             AllCustomers.Update();
             AllCustomers.ThisCustomer.Find(PrimaryKey);

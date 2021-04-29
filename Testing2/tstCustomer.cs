@@ -188,7 +188,7 @@ namespace Testing2
                 OK = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(OK);
+            Assert.IsTrue(Found);
         }
 
 
