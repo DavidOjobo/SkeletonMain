@@ -256,10 +256,10 @@ namespace ClassLibrary
                 Error = Error + "The Address may not be blank : ";
             }
             //if the Address is too long
-            if (Address.Length > 50)
+            if (Address.Length > 60)
             {
                 //record the error
-                Error = Error + "The Address must be less than 50 characters : ";
+                Error = Error + "The Address must be less than 60 characters : ";
             }
             //is the Email blank
             if (Email.Length == 0)
@@ -268,10 +268,10 @@ namespace ClassLibrary
                 Error = Error + "The Email may not be blank : ";
             }
             //if the Email is too long
-            if (Email.Length > 50)
+            if (Email.Length > 80)
             {
                 //record the error
-                Error = Error + "The Email must be less than 50 characters : ";
+                Error = Error + "The Email must be less than 80 characters : ";
             }
 
 
@@ -285,7 +285,7 @@ namespace ClassLibrary
             if (PhoneNumber.Length > 20)
             {
                 //record the error
-                Error = Error + "The Email must be less than 20 characters : ";
+                Error = Error + "The Phone Number must be less than 20 characters : ";
             }
 
             //return any error messages
