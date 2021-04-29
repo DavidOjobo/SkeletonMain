@@ -174,7 +174,7 @@ namespace ClassLibrary
 
             {
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
-                mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
+                //mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
                 mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
