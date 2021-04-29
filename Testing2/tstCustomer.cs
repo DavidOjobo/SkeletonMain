@@ -12,9 +12,8 @@ namespace Testing2
         String Email = "Some@Test.com";
         String Address = "2 Some Street";
         String Date = DateTime.Now.Date.ToString();
-        //String OrderNo = 5555.ToString();
-        String ProductNo = 25.ToString();
-        String CustomerID = 1.ToString();
+        Int32 ProductNo = 25;
+        Int32 CustomerID = 1;
         String PostCode = "TTT TTT";
         //String Active = Boolean.ToString();
 
@@ -189,7 +188,7 @@ namespace Testing2
                 OK = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(OK);
+            Assert.IsTrue(Found);
         }
 
 
@@ -391,7 +390,7 @@ namespace Testing2
             clsCustomer Customer = new clsCustomer();
             //String variable to store the Error message
             String Error = "";
-            Error = Customer.Valid(FullName, Email, PhoneNumber, Date, Address, PostCode);
+            Error = Customer.Valid(FullName, Address, PostCode,Email, Date, PhoneNumber);
             Assert.AreEqual(Error, "");
         }
 
@@ -405,7 +404,7 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string FullName = "a"; //this should be ok
+            string FullName = "aaa"; //this should be ok
                                     //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
@@ -567,7 +566,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -671,7 +670,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -688,7 +687,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -704,7 +703,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -721,7 +720,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -735,7 +734,8 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string PostCode = "aaaaaaaaaaa";
+            string PostCode = "";
+            PostCode = PostCode.PadRight(11, 'a');
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
@@ -756,7 +756,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -792,7 +792,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -809,7 +809,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -827,7 +827,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -844,7 +844,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -878,7 +878,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -914,7 +914,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -933,7 +933,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -947,11 +947,11 @@ namespace Testing2
             String Error = "";
             //this should pass
             string Email = "";
-            Email = Email.PadRight(59, 'a');
+            Email = Email.PadRight(79, 'a');
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -969,7 +969,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -984,7 +984,7 @@ namespace Testing2
             String Error = "";
             //this should pass
             string Email = "";
-            Email = Email.PadRight(51, 'a');
+            Email = Email.PadRight(81, 'a');
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
@@ -1005,7 +1005,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -1041,7 +1041,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -1057,7 +1057,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -1074,7 +1074,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -1091,7 +1091,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 
@@ -1126,7 +1126,7 @@ namespace Testing2
             //invoke the method
             Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
 

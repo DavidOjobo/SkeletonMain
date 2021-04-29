@@ -84,16 +84,16 @@ namespace Testing2
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             clsCustomer TestItem = new clsCustomer();
 
-            //TestItem.Active = true;
-            TestItem.CustomerID = 1;
-            TestItem.ProductNo = 23;
+            
+            TestItem.CustomerID = 64;
+            //TestItem.ProductNo = 23;
             TestItem.PhoneNumber = "100000000000";
             TestItem.FullName = "Bob Smith";
             TestItem.Email = "JackTim@Lonely.com";    
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "6 Cool Road";
             TestItem.PostCode = "LE1 9NS";
-            //TestItem.OrderNo = 1;
+            TestItem.Active = true;
             Int32 PrimaryKey = 1;
             AllCustomers.ThisCustomer = TestItem;
             PrimaryKey = AllCustomers.Add();
@@ -111,16 +111,15 @@ namespace Testing2
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             clsCustomer TestItem = new clsCustomer();
             Int32 PrimaryKey = 1;
-            //TestItem.Active = true;
-            TestItem.ProductNo = 1;
+            TestItem.Active = true;
             TestItem.PhoneNumber = "66666666666";
             TestItem.FullName = "Update Method";
             TestItem.Email = "UpdateMethod@gmail.com";
-            TestItem.CustomerID = 1;
+            TestItem.CustomerID = 70;
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "9 Update Road";
             TestItem.PostCode = "LE6 6UM";
-            //TestItem.OrderNo = 1;
+            
             AllCustomers.ThisCustomer = TestItem;
             PrimaryKey = AllCustomers.Add();
             TestItem.CustomerID = PrimaryKey;
@@ -128,11 +127,10 @@ namespace Testing2
             TestItem.PhoneNumber = "999999999999";
             TestItem.FullName = "Done Update";
             TestItem.Email = "DoneUpdate@gmail.com";
-            TestItem.ProductNo = 60;
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "60 Updated Street";
             TestItem.PostCode = "LE6 9UM";
-            //TestItem.OrderNo = 6;
+            TestItem.Active = true;
             AllCustomers.ThisCustomer = TestItem;
             AllCustomers.Update();
             AllCustomers.ThisCustomer.Find(PrimaryKey);
@@ -145,16 +143,14 @@ namespace Testing2
 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             clsCustomer TestItem = new clsCustomer();
-            //TestItem.Active = true;
-            TestItem.ProductNo = 25;
+            TestItem.Active = true;
+            //TestItem.ProductNo = 25;
             TestItem.PhoneNumber = "100000000000";
-            TestItem.FullName = "Bob Smith";
-            TestItem.Email = "Jsaosfij@ishfs.com";
-            TestItem.CustomerID = 1;
+            TestItem.FullName = "Delete Me";
+            TestItem.Email = "Delete@Delete.com";
             TestItem.Date = DateTime.Now.Date;
-            TestItem.Address = "9 Hamilton Road LE5 J3D";
+            TestItem.Address = "9 Delete Road LE5 J3D";
             TestItem.PostCode = "LE9 7UJ";
-            //TestItem.OrderNo = 1;
             Int32 PrimaryKey = 1;
             AllCustomers.ThisCustomer = TestItem;
             PrimaryKey = AllCustomers.Add();
@@ -185,11 +181,11 @@ namespace Testing2
             FilteredCustomers.ReportByFullName("XXX XXX");
             if (FilteredCustomers.Count == 2)
             {
-               if (FilteredCustomers.CustomerList[1].ProductNo != 2)
+               if (FilteredCustomers.CustomerList[1].CustomerID != 2)
                 {
                     OK = false;
                 }
-                if (FilteredCustomers.CustomerList[2].ProductNo != 3)
+                if (FilteredCustomers.CustomerList[2].CustomerID != 3)
                 {
                     OK = false;
 

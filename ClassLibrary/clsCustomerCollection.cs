@@ -35,7 +35,6 @@ namespace ClassLibrary
                 Customer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
                 Customer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
                 Customer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["Phone Number"]);
-                Customer.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
                 Customer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["Full Name"]);
                 //Active = Convert.ToString(DB.DataTable.Rows[Index]["Full Name"]);
                 //Add the record to private data member
@@ -86,10 +85,8 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@FullName", mThisCustomer.FullName);
-            DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
             DB.AddParameter("@Email", mThisCustomer.Email);
-            //DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
-            //DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
             DB.AddParameter("@Address", mThisCustomer.Address);
@@ -103,13 +100,13 @@ namespace ClassLibrary
         public int Update()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@ProductNo", mThisCustomer.ProductNo);
+
             DB.AddParameter("@FullName", mThisCustomer.FullName);
             DB.AddParameter("@Address", mThisCustomer.Address);
             DB.AddParameter("@PostCode", mThisCustomer.PostCode);
             DB.AddParameter("@Email", mThisCustomer.Email);
             //DB.AddParameter("@OrderNo", mThisCustomer.OrderNo);
-           // DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.AddParameter("@Date", mThisCustomer.Date);
             DB.AddParameter("@PhoneNumber", mThisCustomer.PhoneNumber);
             DB.AddParameter("@Active", mThisCustomer.Active);
