@@ -7,6 +7,12 @@ namespace Testing4
     [TestClass]
     public class tstOrder
     {
+        String ProductName = "Blue";
+        String ProductNo = 1.ToString();
+        String OrderNo = 1.ToString();
+        String Price = 1.ToString();
+        String Date = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOk()
         {
@@ -22,7 +28,7 @@ namespace Testing4
             Assert.AreEqual(OrderProcessing.ProductNo, TestData);
         }
         [TestMethod]
-        public void OrderNo()
+        public void OrderNoProperty()
         {
             clsOrder OrderProcessing = new clsOrder();
             Int32 TestData = 1;
@@ -33,7 +39,7 @@ namespace Testing4
 
 
         [TestMethod]
-        public void Price()
+        public void PriceProperty()
         {
             clsOrder OrderProcessing = new clsOrder();
             Double TestData = 1.00;
@@ -42,7 +48,7 @@ namespace Testing4
 
         }
         [TestMethod]
-        public void Date()
+        public void DateProperty()
         {
             clsOrder OrderProcessing = new clsOrder();
             DateTime TestData = DateTime.Now.Date;
@@ -51,7 +57,7 @@ namespace Testing4
 
         }
         [TestMethod]
-        public void Dispatched()
+        public void DispatchedPropert()
         {
             clsOrder OrderProcessing = new clsOrder();
             Boolean TestData = true;
@@ -60,7 +66,7 @@ namespace Testing4
 
         }
         [TestMethod]
-        public void ProductName()
+        public void ProductNameProperty()
         {
             clsOrder OrderProcessing = new clsOrder();
             string TestData = "text";
@@ -204,27 +210,6 @@ namespace Testing4
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -232,7 +217,7 @@ namespace Testing4
             clsOrder Order = new clsOrder();
             //String variable to store the Error message
             String Error = "";
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             Assert.AreEqual(Error, "");
         }
 
@@ -247,8 +232,8 @@ namespace Testing4
             String Error = "";
             //create some test data to pass to the method
             string ProductName = "aaa"; //this should be ok
-                                     //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+                                        //invoke the method
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -267,19 +252,12 @@ namespace Testing4
             String Error = "";
             //create some test data to pass to the method
             string ProductName = "aaaaa"; //this should be ok
-                                       //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+                                          //invoke the method
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
-
-
         [TestMethod]
-
         public void ProductNameMax()
         {
             //create an instance of the class we want to create
@@ -288,17 +266,12 @@ namespace Testing4
             String Error = "";
             //create some test data to pass to the method
             string ProductName = "aaaaa"; //this should be ok
-                                       //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+                                          //invoke the method
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
-
         public void ProductNameMid()
         {
             //create an instance of the class we want to create
@@ -307,17 +280,13 @@ namespace Testing4
             String Error = "";
             //create some test data to pass to the method
             string ProductName = "aaa"; //this should be ok
-                                     //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+                                        //invoke the method
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
-
-
-
         [TestMethod]
-
         public void ProductNameExtremeMax()
         {
             //create an instance of the class we want to create
@@ -328,16 +297,10 @@ namespace Testing4
             string ProductName = "";
             ProductName = ProductName.PadRight(500, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
-
-
 
 
         [TestMethod]
@@ -356,17 +319,10 @@ namespace Testing4
             //convert the date variable to a string variable
             string Date = TestDate.ToString();
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
-
-
-
         [TestMethod]
         public void DateAddedMinLessOne()
         {
@@ -383,15 +339,10 @@ namespace Testing4
             //convert the date variable to a string variable
             string Date = TestDate.ToString();
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
-
         [TestMethod]
         public void DateAddedMin()
         {
@@ -406,16 +357,10 @@ namespace Testing4
             //convert the date variable to a string variable
             string Date = TestDate.ToString();
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
-
-
         [TestMethod]
         public void DateMin()
         {
@@ -431,14 +376,10 @@ namespace Testing4
             //convert the date variable to a string variable
             string Date = TestDate.ToString();
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
         public void DateExtremeMax()
         {
@@ -454,14 +395,10 @@ namespace Testing4
             //convert the date variable to a string variable
             string Date = TestDate.ToString();
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
         public void DateInvalidData()
         {
@@ -472,17 +409,10 @@ namespace Testing4
             //convert the date variable to a string variable
             string Date = "This is NOT a date";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
-
-
-
         [TestMethod]
         public void ProductNoMinLessOne()
         {
@@ -493,13 +423,10 @@ namespace Testing4
             //this should fail
             string ProductNo = "";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void ProductNoMin()
         {
@@ -510,13 +437,10 @@ namespace Testing4
             //this should fail
             string ProductNo = "a";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void ProductNoMinPlusOne()
         {
@@ -527,7 +451,7 @@ namespace Testing4
             //this should pass
             string ProductNo = "aa";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -543,12 +467,10 @@ namespace Testing4
             //this should pass
             string ProductNo = "aaaaaaaaa";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
 
         [TestMethod]
         public void ProductNoMax()
@@ -560,14 +482,10 @@ namespace Testing4
             //this should pass
             string ProductNo = "aaaaaaaaaa";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
         public void ProductNoMaxPlusOne()
         {
@@ -579,13 +497,10 @@ namespace Testing4
             string ProductNo = "";
             ProductNo = ProductNo.PadRight(11, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void ProductNoMid()
         {
@@ -596,14 +511,10 @@ namespace Testing4
             //this should pass
             string ProductNo = "aaaaa";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
         public void OrderNoLessOne()
         {
@@ -614,14 +525,10 @@ namespace Testing4
             //this should fail
             string OrderNo = "";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
         public void OrderNoMin()
         {
@@ -632,13 +539,10 @@ namespace Testing4
             //this should pass
             string OrderNo = "a";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void OrderNoMinPlusOne()
         {
@@ -649,13 +553,10 @@ namespace Testing4
             //this should pass
             string OrderNo = "aa";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void OrderNoMaxLessOne()
         {
@@ -667,12 +568,11 @@ namespace Testing4
             string OrderNo = "";
             OrderNo = OrderNo.PadRight(59, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
+       
         [TestMethod]
         public void OrderNoOrderNoMax()
         {
@@ -684,12 +584,10 @@ namespace Testing4
             string OrderNo = "";
             OrderNo = OrderNo.PadRight(60, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
         [TestMethod]
         public void OrderNoMaxPlusOne()
         {
@@ -700,13 +598,10 @@ namespace Testing4
             //this should pass
             string OrderNo = "";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void OrderNoMid()
         {
@@ -718,14 +613,10 @@ namespace Testing4
             string OrderNo = "";
             OrderNo = OrderNo.PadRight(30, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
         public void PriceLessOne()
         {
@@ -734,16 +625,12 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string PriceL = "";
+            string Price = "";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
         [TestMethod]
         public void PriceLMin()
         {
@@ -752,52 +639,41 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string PriceL = "a";
+            string Price = "a";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
-
         [TestMethod]
-        public void PriceLMinPlusOne()
+        public void PriceMinPlusOne()
         {
             //create an instance of the class we want to create
             clsOrder Order = new clsOrder();
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string PriceL = "aa";
+            string Price = "aa";
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void PriceLMaxLessOne()
         {
             //create an instance of the class we want to create
-            clsOrder Order = new clsCustomer();
+            clsOrder Order = new clsOrder();
             //string variable to store any error message
             String Error = "";
             //this should pass
             string PriceL = "";
             PriceL = PriceL.PadRight(79, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
         [TestMethod]
         public void PriceLMax()
         {
@@ -809,14 +685,11 @@ namespace Testing4
             string PriceL = "";
             PriceL = PriceL.PadRight(80, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
-
-
-
+        
         [TestMethod]
         public void PriceLMaxPlusOne()
         {
@@ -828,12 +701,10 @@ namespace Testing4
             string PriceL = "";
             PriceL = PriceL.PadRight(81, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
         [TestMethod]
         public void PriceLMid()
         {
@@ -845,11 +716,12 @@ namespace Testing4
             string PriceL = "";
             PriceL = PriceL.PadRight(40, 'a');
             //invoke the method
-            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date, Dispatched);
+            Error = Order.Valid(ProductNo, ProductName, OrderNo, Price, Date);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
+    }
+}
 
 
         
