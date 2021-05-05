@@ -10,7 +10,7 @@ public partial class _1_List : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     { 
-        if (IsPostBack == false)
+        if (IsPostBack == true)
         {
             DisplayCustomers();
         }
@@ -52,12 +52,12 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {
-        Int32 ProductNo;
+        Int32 CustomerID;
         if(lstCustomerList.SelectedIndex != -1)
         {
-            ProductNo = Convert.ToInt32(lstCustomerList.SelectedValue);
-            Session["ProductNo"] = ProductNo;
-            Response.Redirect("DeleteAddres.aspx");
+            CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
+            Session["CustomerID"] = CustomerID;
+            Response.Redirect("DeleteAddress.aspx");
         }
         else
         {
@@ -70,7 +70,7 @@ public partial class _1_List : System.Web.UI.Page
         clsCustomerCollection Customers = new clsCustomerCollection();
         Customers.ReportByFullName(txtFilter.Text);
         lstCustomerList.DataSource = Customers.CustomerList;
-        lstCustomerList.DataValueField = "ProductNo";
+        lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataTextField = "FullName";
         lstCustomerList.DataBind();
     }
@@ -81,7 +81,7 @@ public partial class _1_List : System.Web.UI.Page
         Customers.ReportByFullName("");
         txtFilter.Text = "";
         lstCustomerList.DataSource = Customers.CustomerList;
-        lstCustomerList.DataValueField = "ProductNo";
+        lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataTextField = "FullName";
         lstCustomerList.DataBind();
 

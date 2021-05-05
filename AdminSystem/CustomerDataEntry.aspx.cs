@@ -12,18 +12,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         CustomerID = Convert.ToInt32(Session["CustomerID"]);
-        if (IsPostBack == false)
+        if (IsPostBack == true)
         {
             if (CustomerID != -1)
             {
-                DisplayCustomer();
+                DisplayCustomers();
             }
 
         }
 
     }
 
-    void DisplayCustomer()
+    void DisplayCustomers()
     {
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         CustomerBook.ThisCustomer.Find(CustomerID);
@@ -31,7 +31,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtFullName.Text = CustomerBook.ThisCustomer.FullName;
         txtEmail.Text = CustomerBook.ThisCustomer.Email;
         txtPostCode.Text = CustomerBook.ThisCustomer.PostCode;
-        //txtOrderNo.Text = CustomerBook.ThisCustomer.OrderNo.ToString();
         txtCustomerID.Text = CustomerBook.ThisCustomer.CustomerID.ToString();
         txtPhoneNo.Text = CustomerBook.ThisCustomer.PhoneNumber;
         txtAddress.Text = CustomerBook.ThisCustomer.Address;
@@ -68,7 +67,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // varlable to store any error messages
         string Error = "";
         //validate the data
-        Error = Customer.Valid(FullName, Email, Address, PhoneNumber, Date, PostCode); 
+        Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber); 
         if (Error == "")
         {
             // capture the Full Name

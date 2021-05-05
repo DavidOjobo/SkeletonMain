@@ -14,6 +14,13 @@ public partial class _1Viewer : System.Web.UI.Page
             clsCustomer Customer = new clsCustomer();
             Customer = (clsCustomer)Session["Customer"];
             Response.Write(Customer.CustomerID);
-        
+            Response.Write(Customer.FullName);
+            Response.Write(Customer.Address);
+        Response.Write(Customer.PostCode);
+        Response.Write(Customer.Email);
+        Response.Write(Customer.Active);
+        Response.Write(Customer.PhoneNumber);
+        Response.Write(Customer.Date);
+
     }
 }

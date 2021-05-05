@@ -179,7 +179,6 @@ namespace ClassLibrary
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
                 mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
-                    //mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
                 mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
                 mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
@@ -220,13 +219,13 @@ namespace ClassLibrary
             {
                 //copy the date value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(Date);
-                if (DateTemp < DateTime.Now.Date)
+                if (DateTemp < DateTime.Today.Date)
                 {
                     //record the error
                     Error = Error + "The date cannot be in the past : ";
                 }
                 //check to see if the date is greater than today's date
-                if (DateTemp > DateTime.Now.Date)
+                if (DateTemp > DateTime.Today.Date)
                 {
                     //record the error
                     Error = Error + "The date cannot be in the future : ";
@@ -245,9 +244,11 @@ namespace ClassLibrary
             }
             //if the post code is too long
             if (PostCode.Length > 10)
+              
             {
                 //record the error
                 Error = Error + "The post code must be less than 9 characters : ";
+                Error = Error + PostCode;
             }
             //is the Address blank
             if (Address.Length == 0)
