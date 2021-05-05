@@ -115,10 +115,80 @@ namespace ClassLibrary
            
             
         }
-        
+
+        public string Valid(string productName, int productNo, int orderNo, string date, double price)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the ProductName is blank
+            if (ProductName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The house no may not be blank : ";
+            }
+            //if the house no is greater than 6 characters
+            if (ProductName.Length < 3)
+            {
+                //record the error
+                Error = Error + "The Full Name must be more than 6 characters : ";
+            }
+            try
+            {
+                //copy the date value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(Date);
+                if (DateTemp < DateTime.Today.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Today.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+            //is the post code blank
+            if (productNo == 0)
+            {
+                //record the error
+                Error = Error + "The post code may not be blank : ";
+            }
+            //if the post code is too long
+            if (productNo > 10)
+
+            {
+                //record the error
+                Error = Error + "The post code must be less than 9 characters : ";
+                Error = Error + productNo;
+            }
+            //is the Address blank
+            if (orderNo == 0)
+            {
+                //record the error
+                Error = Error + "The Address may not be blank : ";
+            }
+            //if the Address is too long
+            if (orderNo > 60)
+            {
+                //record the error
+                Error = Error + "The Address must be less than 60 characters : ";
+            }
+          
+            //return any error messages
+            return Error;
         }
+    }
+    }
         
-}
+
 
 
 
