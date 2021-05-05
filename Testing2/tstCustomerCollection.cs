@@ -85,14 +85,14 @@ namespace Testing2
             clsCustomer TestItem = new clsCustomer();
 
             
-            TestItem.CustomerID = 64;
+            TestItem.CustomerID = 68;
             //TestItem.ProductNo = 23;
             TestItem.PhoneNumber = "100000000000";
-            TestItem.FullName = "Bob Smith";
-            TestItem.Email = "JackTim@Lonely.com";    
+            TestItem.FullName = "Jack Smith";
+            TestItem.Email = "Jack@Lonely.com";    
             TestItem.Date = DateTime.Now.Date;
-            TestItem.Address = "6 Cool Road";
-            TestItem.PostCode = "LE1 9NS";
+            TestItem.Address = "9 Cool Road";
+            TestItem.PostCode = "LE7 9NS";
             TestItem.Active = true;
             Int32 PrimaryKey = 1;
             AllCustomers.ThisCustomer = TestItem;

@@ -36,7 +36,8 @@ namespace ClassLibrary
                 Customer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
                 Customer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["Phone Number"]);
                 Customer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["Full Name"]);
-                //Active = Convert.ToString(DB.DataTable.Rows[Index]["Full Name"]);
+                Customer.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["PostCode"]);
+                Customer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
                 //Add the record to private data member
                 mCustomerList.Add(Customer);
                 //Point at the next record
@@ -158,9 +159,8 @@ namespace ClassLibrary
                 Customer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
                 Customer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
                 Customer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
-                Customer.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
                 Customer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["FullName"]);
-                //Active = Convert.ToString(DB.DataTable.Rows[Index]["Full Name"]);
+                Customer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
 
                 //Add the record to the private data member
                 mCustomerList.Add(Customer);
