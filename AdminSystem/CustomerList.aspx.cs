@@ -57,7 +57,7 @@ public partial class _1_List : System.Web.UI.Page
         {
             CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerID"] = CustomerID;
-            Response.Redirect("CustomerConfirmDelete.aspx");
+            Response.Redirect("DeleteCustomer.aspx");
         }
         else
         {
