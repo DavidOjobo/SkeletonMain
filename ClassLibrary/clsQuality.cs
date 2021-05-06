@@ -91,12 +91,12 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(Int32 productNo)
+        public bool Find(int productNo)
         {
             //create instance of class
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@ProductNo", ProductNo);
-            DB.Execute("[dbo].sproc_tblQuality_FilterByProductNo");
+            DB.Execute("sproc_tblQuality_FilterByProductNo");
             if (DB.Count == 1)
             {
                 mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
@@ -123,6 +123,13 @@ namespace ClassLibrary
                 Error = Error + "This name may not be blank: ";
 
             }
+            //if the name no is greater than 20 characters
+            if (productName.Length > 20)
+            {
+                //record the error
+                Error = Error + "The Product Name must not be more than 20 characters : ";
+            }
+
             return Error;
         }
     }

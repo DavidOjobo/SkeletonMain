@@ -5,6 +5,9 @@ namespace ClassLibrary
 {
     public class clsQualityCollection
     {
+        List<clsQuality> mProducList = new List<clsQuality>();
+        clsQuality mThisProduct = new clsQuality();
+
         public clsQualityCollection()
         {
             //var for the index
@@ -36,6 +39,7 @@ namespace ClassLibrary
                 Index++;
             }
         }
+
         List<clsQuality> mProductList = new List<clsQuality>();
         public List<clsQuality> ProductList
         {
@@ -59,6 +63,30 @@ namespace ClassLibrary
 
             }
         }
-        public clsQuality ThisProduct { get; set; }
+        
+        public clsQuality ThisProduct
+        {
+            get
+            {
+                return mThisProduct;
+            }
+            set
+            {
+                mThisProduct = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductName", mThisProduct.ProductName);
+            DB.AddParameter("@StaffID", mThisProduct.StaffID);
+            DB.AddParameter("@BatchNo", mThisProduct.BatchNo);
+            DB.AddParameter("@Grade", mThisProduct.Grade);
+            DB.AddParameter("@Date", mThisProduct.Date);
+            DB.AddParameter("@Defective", mThisProduct.Defective);
+            return DB.Execute("sproc_tblQuality_Insert");
+            
+        }
     }
 }

@@ -41,14 +41,7 @@ namespace Testing5
             //test to see that the two values are the same
             Assert.AreEqual(AllProducts.ProductList, TestList);
         }
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsQualityCollection AllProducts = new clsQualityCollection();
-            Int32 SomeCount = 0;
-            AllProducts.Count = SomeCount;
-            Assert.AreEqual(AllProducts.Count, SomeCount);
-        }
+        
         [TestMethod]
         public void ThisProductPropertyOK()
         {
@@ -99,6 +92,27 @@ namespace Testing5
         {
             clsQualityCollection AllProducts = new clsQualityCollection();
             Assert.AreEqual(AllProducts.Count, 2);
+        }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsQualityCollection AllProducts = new clsQualityCollection();
+            clsQuality TestItem = new clsQuality();
+
+            TestItem.ProductName = "Blue";
+            TestItem.ProductNo = 1;
+            TestItem.StaffID = 1;
+            TestItem.BatchNo = 1;
+            TestItem.Grade = 'A';
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.Defective = true;
+            Int32 PrimaryKey = 1;
+            AllProducts.ThisProduct = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem);
+
         }
     }
 }
