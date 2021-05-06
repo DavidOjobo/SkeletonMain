@@ -17,14 +17,15 @@
         <div>
         </div>
         <asp:ListBox ID="lstCustomerList" runat="server" Height="330px" Width="610px"></asp:ListBox>
+        <br />
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
-        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
-        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
-        <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
-        <asp:Label ID="Label1" runat="server" Text="Enter a name"></asp:Label>
-        <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
-        <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply" />
-        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
+        &nbsp;<asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+        &nbsp;<asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+        &nbsp;<asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
+        &nbsp;<asp:Label ID="Label1" runat="server" Text="Enter a name"></asp:Label>
+        &nbsp;<asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
+        &nbsp;<asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply" />
+        &nbsp;<asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
     </form>
 </body>
 </html>

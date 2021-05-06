@@ -29,7 +29,7 @@ namespace Testing2
             TestItem.CustomerID = 1;
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "9 Hamilton Road";
-            TestItem.OrderNo = 1;
+           
 
             TestList.Add(TestItem);
             AllCustomers.CustomerList = TestList;
@@ -52,7 +52,7 @@ namespace Testing2
             TestCustomer.CustomerID = 1;
             TestCustomer.Date = DateTime.Now.Date;
             TestCustomer.Address = "9 Hamilton Road LE5 J3D";
-            TestCustomer.OrderNo = 1;
+           
             AllCustomers.ThisCustomer = TestCustomer;
             Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
         }
@@ -70,7 +70,7 @@ namespace Testing2
             TestItem.CustomerID = 1;
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "714 List Avenue";
-            //TestItem.OrderNo = 1;
+            
             TestList.Add(TestItem);
             AllCustomers.CustomerList = TestList;
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
@@ -118,8 +118,7 @@ namespace Testing2
             TestItem.CustomerID = 70;
             TestItem.Date = DateTime.Now.Date;
             TestItem.Address = "9 Update Road";
-            TestItem.PostCode = "LE6 6UM";
-            
+            TestItem.PostCode = "LE6 6UM";   
             AllCustomers.ThisCustomer = TestItem;
             PrimaryKey = AllCustomers.Add();
             TestItem.CustomerID = PrimaryKey;
