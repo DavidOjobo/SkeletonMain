@@ -12,7 +12,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         CustomerID = Convert.ToInt32(Session["CustomerID"]);
-        if (IsPostBack == true)
+        if (IsPostBack == false)
         {
             if (CustomerID != -1)
             {
@@ -27,14 +27,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         CustomerBook.ThisCustomer.Find(CustomerID);
-        txtProductNo.Text = CustomerBook.ThisCustomer.ProductNo.ToString();
+        //txtProductNo.Text = CustomerBook.ThisCustomer.ProductNo.ToString();
         txtFullName.Text = CustomerBook.ThisCustomer.FullName;
         txtEmail.Text = CustomerBook.ThisCustomer.Email;
         txtPostCode.Text = CustomerBook.ThisCustomer.PostCode;
         txtCustomerID.Text = CustomerBook.ThisCustomer.CustomerID.ToString();
         txtPhoneNo.Text = CustomerBook.ThisCustomer.PhoneNumber;
         txtAddress.Text = CustomerBook.ThisCustomer.Address;
-        txtDate.Text = CustomerBook.ThisCustomer.Date.ToString();
+        txtDate.Text = CustomerBook.ThisCustomer.Date.ToString("MM/dd/yyyy");
 
 
     }
@@ -59,10 +59,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string PhoneNumber = txtPhoneNo.Text;
         string Address = txtAddress.Text;
         string PostCode = txtPostCode.Text;
-        int ProductNo = Convert.ToInt32(txtProductNo.Text);
-        //capture the CustomerID
-        //int CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        // capture Date added
         string Date = txtDate.Text;
         // varlable to store any error messages
         string Error = "";
@@ -77,12 +73,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
             // capture the Address
             Customer.Address = Address;
             Customer.PostCode = PostCode;
-            //capture the OrderNo
-            //Customer.OrderNo = OrderNo;
+           
             Customer.PhoneNumber = PhoneNumber;
             Customer.Active = chkActive.Checked;
             // capture the ProductNo
-            Customer.ProductNo = ProductNo;
+            //Customer.ProductNo = ProductNo;
             //I capture date added
             Customer.Date = Convert.ToDateTime(Date);
             //store the address in the session object
@@ -126,14 +121,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Found == true)
         {
             txtCustomerID.Text = Customer.CustomerID.ToString();
-            txtProductNo.Text = Customer.ProductNo.ToString();
+            //txtProductNo.Text = Customer.ProductNo.ToString();
             txtFullName.Text = Customer.FullName;
             txtEmail.Text = Customer.Email;
-            txtOrderNo.Text = Customer.OrderNo.ToString();
             txtPhoneNo.Text = Customer.PhoneNumber.ToString();
             txtAddress.Text = Customer.Address;
             txtPostCode.Text = Customer.PostCode;
             txtDate.Text = Customer.Date.ToString();
+            chkActive.Checked = Customer.Active;
 
 
         }

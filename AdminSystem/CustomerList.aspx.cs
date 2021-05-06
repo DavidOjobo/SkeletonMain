@@ -10,7 +10,7 @@ public partial class _1_List : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     { 
-        if (IsPostBack == true)
+        if (IsPostBack == false)
         {
             DisplayCustomers();
         }
@@ -20,7 +20,7 @@ public partial class _1_List : System.Web.UI.Page
         ClassLibrary.clsCustomerCollection AllCustomers = new ClassLibrary.clsCustomerCollection();
         lstCustomerList.DataSource = AllCustomers.CustomerList;
         lstCustomerList.DataValueField = "CustomerID";
-        lstCustomerList.DataTextField = "Address";
+        lstCustomerList.DataTextField = "FullName";
         lstCustomerList.DataBind();
     }
 
@@ -34,7 +34,7 @@ public partial class _1_List : System.Web.UI.Page
     protected void btnEdit_Click(object sender, EventArgs e)
     {
         Int32 CustomerID;
-        if (lstCustomerList.SelectedIndex != 1)
+        if (lstCustomerList.SelectedIndex != -1)
         {
             CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerID"] = CustomerID;
@@ -57,7 +57,7 @@ public partial class _1_List : System.Web.UI.Page
         {
             CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerID"] = CustomerID;
-            Response.Redirect("DeleteAddress.aspx");
+            Response.Redirect("CustomerConfirmDelete.aspx");
         }
         else
         {
