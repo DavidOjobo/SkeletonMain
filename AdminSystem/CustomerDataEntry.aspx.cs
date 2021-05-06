@@ -66,6 +66,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = Customer.Valid(FullName, Address, PostCode, Email, Date, PhoneNumber); 
         if (Error == "")
         {
+            
             // capture the Full Name
             Customer.FullName = FullName;
             //capture the Email
@@ -78,7 +79,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
             Customer.Active = chkActive.Checked;
             // capture the ProductNo
             //Customer.ProductNo = ProductNo;
-            //I capture date added
             Customer.Date = Convert.ToDateTime(Date);
             //store the address in the session object
             clsCustomerCollection CustomerList = new clsCustomerCollection();
