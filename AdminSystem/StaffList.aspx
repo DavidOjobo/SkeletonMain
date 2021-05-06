@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffList.aspx.cs" Inherits="_1_List" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StaffDataEntry.aspx.cs" Inherits="_1_DataEntry" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,6 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:ListBox ID="lstProductList" runat="server" Height="326px" Width="338px"></asp:ListBox>
     </form>
 </body>
 </html>

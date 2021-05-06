@@ -17,12 +17,39 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsQuality QualityControl = new clsQuality();
-        QualityControl.ProductName = txtProductName.Text;
-        Session["QualityControl"] = QualityControl;
-        //navigate to viewer page
-        Response.Redirect("QualityViewer.aspx");
-    }
+        string ProductName = txtProductName.Text;
+        string ProductNo = txtProductNo.Text;
+        //capture the StaffID
+        string StaffID = txtStaffID.Text;
+        //capture the Batch number
+        string BatchNo = txtBatchNo.Text;
+        string Grade = txtGrade.Text;
+        string Date = txtDate.Text;
+        // varlable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = QualityControl.Valid(ProductNo, ProductName, StaffID, BatchNo, Grade, Date);
+        if (Error == "")
+        {
+            QualityControl.ProductName = txtProductName.Text;
+            QualityControl.StaffID = Convert.ToInt32(txtStaffID.Text);
+            QualityControl.BatchNo = Convert.ToInt32(txtBatchNo.Text);
+            QualityControl.Grade = Convert.ToChar(txtGrade.Text);
+            QualityControl.Date = Convert.ToDateTime(txtDate.Text);
+            QualityControl.Defective = chkDefective.Checked;
+            QualityControl.ProductName = txtProductName.Text;
+            clsQualityCollection ProductList = new clsQualityCollection();
+            ProductList.ThisProduct = QualityControl;
+            ProductList.Add();
 
+            //navigate to viewer page
+            Response.Redirect("QualityList.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+    }
     protected void btnFind_Click(object sender, EventArgs e)
     {
         clsQuality QualityControl = new clsQuality();

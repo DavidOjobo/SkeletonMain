@@ -187,7 +187,7 @@ namespace Testing5
             Boolean OK = true;
             Int32 ProductNo = 1;
             Found = QualityControl.Find(ProductNo);
-            if (QualityControl.Defective != false)
+            if (QualityControl.Defective != true)
             {
                 OK = false;
             }
@@ -283,6 +283,7 @@ namespace Testing5
             Error = QualityControl.Valid(ProductName, StaffID, BatchNo, Grade, Date, Defective);
             Assert.AreNotEqual(Error, "");
         }
+
 
        
     }
