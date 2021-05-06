@@ -125,5 +125,10 @@ namespace ClassLibrary
             }
             return Error;
         }
+
+        public static implicit operator clsQuality(clsStock v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

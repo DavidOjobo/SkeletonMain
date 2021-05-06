@@ -7,13 +7,13 @@ namespace Testing3
     [TestClass]
     public class tstStock
     {
-        
-            String ProductName = "Nike";
+
+        string ProductName = "Nike";
             String ProductNo = 1.ToString();
-            String Price = 1.00.ToString();
+        private String Price = 1.00.ToString();
             String Date = DateTime.Now.Date.ToString();
             String QuantityOrdered = 1.ToString();
-            String QuantityInStock = 1.ToString();
+        string QuantityInStock = 1.ToString();
         
 
             [TestMethod]
@@ -34,7 +34,7 @@ namespace Testing3
         public void QuantityOrderedPropertyOK()
         {
             clsStock StockManagement = new clsStock();
-            Int32 TestData = 2;
+            Int32 TestData =1;
             StockManagement.QuantityOrdered = TestData;
             Assert.AreEqual(StockManagement.QuantityOrdered, TestData);
         }
@@ -42,7 +42,7 @@ namespace Testing3
         public void ProductNamePropertyOK()
         {
             clsStock StockManagement = new clsStock();
-            String TestData = "a b c";
+            String TestData = "Nike";
             StockManagement.ProductName = TestData;
             Assert.AreEqual(StockManagement.ProductName, TestData);
         }
@@ -75,7 +75,7 @@ namespace Testing3
         public void FindMethodOK()
         {
             clsStock StockManagement = new clsStock();
-            Boolean Found = false;
+            Boolean Found = true;
             Int32 ProductNo = 1;
             Found = StockManagement.Find(ProductNo);
             Assert.IsTrue(Found);
@@ -96,7 +96,7 @@ namespace Testing3
             //Checks if the product number is correct
             if (StockManagement.ProductNo != 1)
             {
-                OK = false;
+                OK = true;
             }
             Assert.IsTrue(OK);
 
@@ -136,7 +136,7 @@ namespace Testing3
             //invoke the method 
             Found = StockManagement.Find(ProductNo);
             //checks if the price is correct
-            if (StockManagement.Price != 420.69)
+            if (StockManagement.Price != 1)
             {
                 OK = false;
             }
@@ -195,11 +195,11 @@ namespace Testing3
             //boolean variable to record if data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductNo = 1;
+            Int32 QuantityInStock = 1;
             //invoke the method 
-            Found = StockManagement.Find(ProductNo);
+            Found = StockManagement.Find(QuantityInStock);
             //checks is quantityOrdered is correct
-            if (StockManagement.QuantityInStock != 2000) 
+            if (StockManagement.QuantityInStock == 1) 
             {
                 OK = false;
             }
@@ -212,7 +212,7 @@ namespace Testing3
         {
             clsStock StockManagement = new clsStock();
             String Error = "";
-            Error = StockManagement.Valid( ProductName, ProductNo, Price, Date, QuantityOrdered, QuantityInStock );
+            Error = StockManagement.Valid( ProductName, ProductNo, Price, QuantityOrdered, Date, QuantityInStock );
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -256,7 +256,7 @@ namespace Testing3
         public void ProductNameMax()
         {
             clsStock StockManagement = new clsStock();
-            String Error = "";
+            string Error = "";
             string ProductName = "";
             ProductName = ProductName.PadRight(20, 'a');
             Error = StockManagement.Valid(ProductName, ProductNo,Price, QuantityInStock, Date, QuantityOrdered);
