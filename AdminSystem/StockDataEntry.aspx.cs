@@ -9,9 +9,24 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 ProductNo;
     protected void Page_Load(object sender, EventArgs e)
     {
+        ProductNo = Convert.ToInt32(Session["ProductNo"]);
+        if (IsPostBack == true)
+        {
+            if (ProductNo != -1)
+            {
+                DisplayCustomers();
+            }
 
+        }
+
+    }
+
+    private void DisplayCustomers()
+    {
+        throw new NotImplementedException();
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
