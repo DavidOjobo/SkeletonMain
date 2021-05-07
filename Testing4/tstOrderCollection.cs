@@ -75,10 +75,30 @@ namespace Testing2
             Assert.AreEqual(AllOrders.Count, 2);
 
         }
-        
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 Primarykey = 0;
+            TestItem.Dispatched = true;
+            TestItem.ProductName = "kenny";
+            TestItem.ProductNo = 1;
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.Price = 84.0000;
+            TestItem.OrderNo = 1;
 
+            AllOrders.ThisOrder = TestItem;
+            Primarykey = AllOrders.Add();
+            TestItem.OrderNo = Primarykey;
+            AllOrders.ThisOrder.Find(Primarykey);
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
 
         }
+
+
+
+    }
 
     }
 
