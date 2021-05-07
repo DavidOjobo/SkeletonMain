@@ -6,52 +6,8 @@ namespace ClassLibrary
     public class clsOrdersCollection
     {
         List<clsOrder> mOrderList = new List<clsOrder>();
-        //publc property for address list 
-        public List<clsOrder> OrderList
-        {
-            get
-            {
-                //return the private data
-                return mOrderList;
-            }
-            set
-            {
-                //set the private data
-                mOrderList = value;
-            }
+        clsOrder mThisOrder = new clsOrder();   
 
-        }
-        //public property for count
-        public int Count
-        {
-            get
-            {
-                //return the count of the list
-                return mOrderList.Count;
-            }
-            set
-            {
-            }
-        }
-        public void clsOrderCollection()
-        {
-            clsOrder TestItem = new clsOrder();
-            TestItem.ProductName = "kenny";
-            TestItem.ProductNo = 1;
-            TestItem.Date = DateTime.Now.Date;
-            TestItem.Price = 84.0000;
-            TestItem.OrderNo = 1;
-            //TestItem.OrderNo = 1;
-            mOrderList.Add(TestItem);
-            TestItem = new clsOrder();
-            TestItem.ProductName = "kenny";
-            TestItem.ProductNo = 1;
-            TestItem.Date = DateTime.Now.Date;
-            TestItem.Price = 84.0000;
-            TestItem.OrderNo = 1;
-            //TestItem.OrderNo = 1;
-            mOrderList.Add(TestItem);
-        }
         public clsOrdersCollection()
         {
             //var for the index
@@ -85,7 +41,63 @@ namespace ClassLibrary
 
 
         }
+        List<clsOrder> mProductList = new List<clsOrder>();
+        public List<clsOrder> ProductList
+        {
+            get
+            {
+                return mOrderList;
+            }
+            set
+            {
+                mOrderList = value;
+            }
+        }
+        public int Count
+        {
+            get
+            {
+                return mOrderList.Count;
+            }
+            set
+            {
 
+            }
+        }
+
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                return mOrderList;
+            }
+            set
+            {
+                mOrderList = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductName", mOrderList.ProductName);
+            DB.AddParameter("@ProductNo", mOrderList.ProductNo);
+            DB.AddParameter("@OrderNo", mOrderList.OrderNo);
+            DB.AddParameter("@Price", mOrderList.Price);
+            DB.AddParameter("@Date", mOrderList.Date);
+            DB.AddParameter("@Dispatched", mOrderList.Dispatched);
+            return DB.Execute("sproc_tblOrder_Insert");
+
+        }
     }
+
+    public class clsOrderCollection
+    {
+        public List<clsOrder> OrderList { get; set; }
+        public int Count { get; set; }
+        public clsOrder ThisOrder { get; set; }
+    }
+
+}
 }
     
