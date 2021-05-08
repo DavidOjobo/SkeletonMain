@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClassLibrary;
 
 namespace ClassLibrary
 {
@@ -10,9 +11,7 @@ namespace ClassLibrary
 
         public clsOrdersCollection()
         {
-            //var for the index
             Int32 Index = 0;
-            //var to store the record count
             Int32 RecordCount = 0;
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
@@ -41,8 +40,8 @@ namespace ClassLibrary
 
 
         }
-        List<clsOrder> mProductList = new List<clsOrder>();
-        public List<clsOrder> ProductList
+        //List<clsOrder> mProductList = new List<clsOrder>();
+        public List<clsOrder> OrderList
         {
             get
             {
@@ -69,23 +68,23 @@ namespace ClassLibrary
         {
             get
             {
-                return mOrderList;
+                return mThisOrder;
             }
             set
             {
-                mOrderList = value;
+                mThisOrder = value;
             }
         }
 
         public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@ProductName", mOrderList.ProductName);
-            DB.AddParameter("@ProductNo", mOrderList.ProductNo);
-            DB.AddParameter("@OrderNo", mOrderList.OrderNo);
-            DB.AddParameter("@Price", mOrderList.Price);
-            DB.AddParameter("@Date", mOrderList.Date);
-            DB.AddParameter("@Dispatched", mOrderList.Dispatched);
+            DB.AddParameter("@ProductName", mThisOrder.ProductName);
+            DB.AddParameter("@ProductNo", mThisOrder.ProductNo);
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("@Price", mThisOrder.Price);
+            DB.AddParameter("@Date", mThisOrder.Date);
+            DB.AddParameter("@Dispatched", mThisOrder.Dispatched);
             return DB.Execute("sproc_tblOrder_Insert");
 
         }
@@ -99,5 +98,5 @@ namespace ClassLibrary
     }
 
 }
-}
+
     
