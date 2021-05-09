@@ -34,7 +34,7 @@ namespace Testing2
 
 
         }
-      
+
 
         [TestMethod]
         public void ThisOrderPropertyOK()
@@ -62,7 +62,7 @@ namespace Testing2
             TestItem.Date = DateTime.Now.Date;
             TestItem.Price = 84.0000;
             TestItem.OrderNo = 1;
-            
+
             TestList.Add(TestItem);
             AllOrders.OrderList = TestList;
             Assert.AreEqual(AllOrders.Count, TestList.Count);
@@ -95,11 +95,39 @@ namespace Testing2
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
 
         }
+        [TestMethod]
 
+        public void UpdateMethodOK()
+        {
 
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 1;
+            TestItem.Dispatched = true;
+            TestItem.ProductName = "kenny";
+            TestItem.ProductNo = 1;
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.Price = 84.0000;
+            TestItem.OrderNo = 1;
+
+            AllOrders.ThisOrder = TestItem;
+            PrimaryKey = AllOrders.Add();
+            TestItem.OrderID = PrimaryKey;
+            //modify test data
+            TestItem.Dispatched = true;
+            TestItem.ProductName = "kenny";
+            TestItem.ProductNo = 1;
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.Price = 84.0000;
+            TestItem.OrderNo = 1;
+            AllOrders.ThisOrder = TestItem;
+            AllOrders.Update();
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
 
     }
+}
 
-    }
 
 
