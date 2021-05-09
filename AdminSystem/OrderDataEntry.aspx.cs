@@ -8,13 +8,40 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
+    {
+        OrderID = Convert.ToInt32(Session["OrderID"]);
+        if (IsPostBack == false)
+        {
+            if (OrderID != -1)
+            {
+                DisplayOrders();
+            }
+
+        }
+    }
+
+    void DisplayOrders()
+    {
+        clsOrderCollection OrderBook = new clsOrderCollection();
+        OrderBook.ThisOrder.Find(OrderID);
+        //txtProductNo.Text = CustomerBook.ThisCustomer.ProductNo.ToString();
+        txtProductName.Text = OrderBook.ThisOrder.ProductName;
+        txtProductNo.Text = OrderBook.ThisOrder.ProductNo;
+        txtPrice.Text = OrderBook.ThisOrder.Price;
+        txtOrderNo.Text = OrderBook.ThisOrder.OrderID.ToString();
+        txtDate.Text = OrderBook.ThisOrder.Date.ToString("MM/dd/yyyy");
+
+    }
+
+    protected void txtProductNo_TextChanged(object sender, EventArgs e)
     {
 
     }
-              
-        
-protected void btnOK_Click(object sender, EventArgs e)
+
+
+    protected void btnOK_Click(object sender, EventArgs e)
     {
         clsOrder Order = new clsOrder();
         string ProductName = txtProductName.Text;
@@ -39,15 +66,24 @@ protected void btnOK_Click(object sender, EventArgs e)
             //Order.Dispatched = chkDispatched.Checked;
             Order.ProductName = txtProductName.Text;
             clsOrderCollection OrderList = new clsOrderCollection();
-            OrderList.ThisOrder = Order;
-            OrderList.Add();
 
-            //navigate to viewer page
-            Response.Redirect("OrderList.aspx");
-        }
-        else
-        {
-            lblError.Text = Error;
+            if (OrderID == -1)
+            {
+                OrderList.ThisOrder = Order;
+                OrderList.Add();
+            }
+
+
+            else
+            {
+                OrderList.ThisOrder.Find(OrderID);
+                OrderList.ThisOrder = Order;
+                OrderList.Update();
+                }
+
+                Response.Redirect("OrderList.aspx");
+
+                lblError.Text = Error;
         }
     }
     protected void btnFind_Click(object sender, EventArgs e)
