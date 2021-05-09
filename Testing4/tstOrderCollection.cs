@@ -78,7 +78,7 @@ namespace Testing2
         [TestMethod]
         public void AddMethodOk()
         {
-            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrdersCollection AllOrders = new clsOrdersCollection();
             clsOrder TestItem = new clsOrder();
             Int32 Primarykey = 0;
             TestItem.Dispatched = true;
@@ -100,7 +100,7 @@ namespace Testing2
         public void UpdateMethodOK()
         {
 
-            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrdersCollection AllOrders = new clsOrdersCollection();
             clsOrder TestItem = new clsOrder();
             Int32 PrimaryKey = 1;
             TestItem.Dispatched = true;
@@ -112,7 +112,7 @@ namespace Testing2
 
             AllOrders.ThisOrder = TestItem;
             PrimaryKey = AllOrders.Add();
-            TestItem.OrderID = PrimaryKey;
+            TestItem.ProductNo = PrimaryKey;
             //modify test data
             TestItem.Dispatched = true;
             TestItem.ProductName = "kenny";

@@ -36,11 +36,11 @@ public partial class _1_List : System.Web.UI.Page
     }
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        Int32 OrderID;
+        Int32 ProductNo;
         if (lstOrderList.SelectedIndex != -1)
         {
-            OrderID = Convert.ToInt32(lstOrderList.SelectedValue);
-            Session["OrderID"] = OrderID;
+            ProductNo = Convert.ToInt32(lstOrderList.SelectedValue);
+            Session["ProductNo"] = ProductNo;
             Response.Redirect("OrderDataEntry.aspx");
 
         }
