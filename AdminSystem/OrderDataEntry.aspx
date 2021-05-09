@@ -22,7 +22,9 @@
         <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox><br />
         <asp:Label ID="lblDate" runat="server" Text="Date" width="121px"></asp:Label>
         <asp:TextBox ID="txtDate" runat="server"></asp:TextBox><br />
-        <asp:CheckBox ID="txtDispatched" runat="server" Text="Dispatched" TextAlign="Left" width="121px" /><br />
+        <asp:CheckBox ID="txtDispatched" runat="server" Text="Dispatched" TextAlign="Left" width="121px" />
+        <br />
+            <asp:Label ID="lblError" runat="server"></asp:Label><br />
         <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" width="60px" />
         <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
     </form>

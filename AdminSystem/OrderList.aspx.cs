@@ -11,10 +11,10 @@ public partial class _1_List : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
-            DisplayOrder();
+            DisplayOrders();
         }
     }
-    void DisplayProducts()
+    void DisplayOrders()
     {
         //create instance of product collection
         clsOrdersCollection Orders = new clsOrdersCollection();
@@ -23,6 +23,16 @@ public partial class _1_List : System.Web.UI.Page
         lstOrderList.DataValueField = "ProductNo";
         lstOrderList.DataTextField = "ProductName";
         lstOrderList.DataBind();
+    }
+
+    protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["ProductNo"] = -1;
+        Response.Redirect("Order.aspx");
     }
 } 
 

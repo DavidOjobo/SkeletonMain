@@ -95,5 +95,10 @@ namespace ClassLibrary
         public List<clsOrder> OrderList { get; set; }
         public int Count { get; set; }
         public clsOrder ThisOrder { get; set; }
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
