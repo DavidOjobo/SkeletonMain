@@ -15,6 +15,7 @@
         </div>
         <asp:Button ID="btnAdd" runat="server" Text="Add" />
         <asp:Button ID="btnEdit" runat="server" Text="Edit" />
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" />
     </form>
 </body>
 </html>
