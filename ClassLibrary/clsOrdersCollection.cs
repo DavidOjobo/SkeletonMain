@@ -7,7 +7,7 @@ namespace ClassLibrary
     public class clsOrdersCollection
     {
         List<clsOrder> mOrderList = new List<clsOrder>();
-        clsOrder mThisOrder = new clsOrder();   
+        clsOrder mThisOrder = new clsOrder();
 
         public clsOrdersCollection()
         {
@@ -88,8 +88,24 @@ namespace ClassLibrary
             return DB.Execute("sproc_tblOrder_Insert");
 
         }
+        public int Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductName", mThisOrder.ProductName);
+            DB.AddParameter("@ProductNo", mThisOrder.ProductNo);
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("@Price", mThisOrder.Price);
+            DB.AddParameter("@Date", mThisOrder.Date);
+            DB.AddParameter("@Dispatched", mThisOrder.Dispatched);
+            return DB.Execute("sproc_tblOrder_Update");
+        }
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", mThisOrder.ProductNo);
+            //DB.AddParameter("@Active", mThisOrder.Active);
+            DB.Execute("sproc_tblOrder_Delete");
+
+        }
     }
-
 }
-
-    

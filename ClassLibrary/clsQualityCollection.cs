@@ -100,5 +100,10 @@ namespace ClassLibrary
         {
             throw new NotImplementedException();
         }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
