@@ -86,8 +86,131 @@ namespace Testing6
         }
 
     }
+           [TestMethod]
+            public void FindMethodOK()
+            {
+                clsStaff StaffManagement = new clsStaff();
+                Boolean Found = false;
+                Int32 ProductNo = 1;
+                Found = StaffManagement.Find(ProductNo);
+                Assert.IsTrue(Found);
+            }
 
-    internal class clsStaff
+    [TestMethod]
+    public void TestProductNoFound()
     {
+        clsStaff StaffManagement = new clsStaff();
+        Boolean Found = false;
+        Boolean OK = true;
+        Int32 ProductNo = 1;
+        Found = StaffManagement.Find(ProductNo);
+        if (StaffManagement.ProductNo != 1)
+        {
+            OK = false;
+        }
+        Assert.IsTrue(OK);
+
+    }
+
+    [TestMethod]
+    public void TestProductNameFound()
+    {
+        clsStaff StaffManagement = new clsStaff();
+        Boolean Found = false;
+        Boolean OK = true;
+        Int32 ProductNo = 1;
+        Found = StaffManagement.Find(ProductNo);
+        if (StaffManagement.ProductName != 1)
+        {
+            OK = false;
+        }
+        Assert.IsTrue(OK);
+    }
+    [TestMethod]
+    public void TestStaffIDFound()
+    {
+        clsStaff StaffManagement = new clsStaff();
+        Boolean Found = false;
+        Boolean OK = true;
+        Int32 ProductNo = 1;
+        Found = StaffManagement.Find(ProductNo);
+        if (StaffManagement.StaffID != 1)
+        {
+            OK = false;
+        }
+        Assert.IsTrue(OK);
+    }
+
+
+    [TestMethod]
+    public void TestOrderNoFound()
+    {
+        clsStaff StaffManagement = new clsStaff();
+        Boolean Found = false;
+        Boolean OK = true;
+        Int32 ProductNo = 1;
+        Found = StaffManagement.Find(ProductNo);
+        if (StaffManagement.OrderNo != 1)
+        {
+            OK = false;
+        }
+        Assert.IsTrue(OK);
+    }
+
+
+    [TestMethod]
+    public void TestOrderNoFound()
+    {
+        clsStaff StaffManagement = new clsStaff();
+        Boolean Found = false;
+        Boolean OK = true;
+        Int32 ProductNo = 1;
+        Found = StaffManagement.Find(ProductNo);
+        if (StaffManagement.OrderNo != 1)
+        {
+            OK = false;
+        }
+        Assert.IsTrue(OK);
+    }
+
+    public void TestDateAddedFound()
+    {
+
+        clsStaff StaffManagement = new clsStaff();
+        Boolean Found = false;
+        Boolean OK = true;
+        Int32 ProductNo = 1;
+        Found = StaffManagement.Find(ProductNo);
+        if (AnAddress.DateAdded != Convert.ToDateTime("05/05/2021"))
+        {
+            OK = false;
+        }
+        Assert.IsTrue(OK);
+    }
+
+    [TestMethod]
+    public void TestShippedStatusFound()
+    {
+        clsStaff StaffManagement = new clsStaff();
+        Boolean Found = false;
+        Boolean OK = true;
+        Int32 ProductNo = 1;
+        Found = StaffManagement.Find(ProductNo);
+        if (StaffManagement.ShippedStatus != 1)
+        {
+            OK = false;
+        }
+        Assert.IsTrue(OK);
+
+    }
+
+
+
+
+
+
+
+
+        {
     }
 }
