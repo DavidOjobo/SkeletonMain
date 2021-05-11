@@ -105,5 +105,10 @@ namespace ClassLibrary
         {
             throw new NotImplementedException();
         }
+
+        public void ReportByProductName(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

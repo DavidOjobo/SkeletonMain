@@ -39,7 +39,7 @@ namespace Testing2
         [TestMethod]
         public void ThisOrderPropertyOK()
         {
-            ClassLibrary.clsOrderCollection AllOrders = new ClassLibrary.clsOrderCollection();
+            ClassLibrary.clsOrdersCollection AllOrders = new ClassLibrary.clsOrdersCollection();
             clsOrder TestOrder = new clsOrder();
             TestOrder.Dispatched = true;
             TestOrder.ProductName = "kenny";
@@ -53,7 +53,7 @@ namespace Testing2
         [TestMethod]
         public void ListAndCountOK()
         {
-            ClassLibrary.clsOrderCollection AllOrders = new ClassLibrary.clsOrderCollection();
+            ClassLibrary.clsOrdersCollection AllOrders = new ClassLibrary.clsOrdersCollection();
             List<clsOrder> TestList = new List<clsOrder>();
             clsOrder TestItem = new clsOrder();
             TestItem.Dispatched = true;
@@ -71,7 +71,7 @@ namespace Testing2
         public void TwoRecordsPresent()
         {
             //create an instance of the class we want to create
-            ClassLibrary.clsOrderCollection AllOrders = new ClassLibrary.clsOrderCollection();
+            ClassLibrary.clsOrdersCollection AllOrders = new ClassLibrary.clsOrdersCollection();
             Assert.AreEqual(AllOrders.Count, 2);
 
         }
@@ -125,7 +125,56 @@ namespace Testing2
             AllOrders.ThisOrder.Find(PrimaryKey);
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsOrdersCollection AllOrders = new clsOrdersCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            TestItem.Dispatched = true;
+            TestItem.ProductName = "kenny";
+            TestItem.ProductNo = 1;
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.Price = 84.0000;
+            TestItem.OrderNo = 1;
+            AllOrders.ThisOrder = TestItem;
+            PrimaryKey = AllOrders.Add();
+            TestItem.OrderNo = PrimaryKey;
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.Delete();
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.IsFalse(Found);
 
+        }
+           
+        [TestMethod]
+        public void ReportByProductNameOK()
+        {
+            //clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrdersCollection FilteredOrders = new clsOrdersCollection();
+            FilteredOrders.ReportByProductNameOK("XXX XXX");
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByProductnameTestDataFound()
+        {
+            clsOrdersCollection FilteredOrders = new clsOrdersCollection
+            Boolean OK = true;
+            FilteredOrdersOrders.ReportByProductName("yyy yyy");
+            if (FilteredOrders.CountOK == 2)
+            {
+                if (FilteredOrders.OrderListOK[0].OrderNo != 36)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
 
