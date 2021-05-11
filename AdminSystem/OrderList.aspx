@@ -16,6 +16,15 @@
         <asp:Button ID="btnAdd" runat="server" Text="Add" />
         <asp:Button ID="btnEdit" runat="server" Text="Edit" />
         <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+        <br />
+        <br />
+        Enter a product name
+        <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="btnApply" runat="server" Text="Apply" />
+&nbsp;
+        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
     </form>
 </body>
 </html>

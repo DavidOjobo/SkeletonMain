@@ -10,15 +10,22 @@ namespace ClassLibrary
         clsOrder mThisOrder = new clsOrder();
 
         public clsOrdersCollection()
+
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.Execute("sproc_tblOrder_SelectAll");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
         {
             Int32 Index = 0;
-            Int32 RecordCount = 0;
-            //object for data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblOrder_SelectAll");
-            //get the count of records
+            Int32 RecordCount;
             RecordCount = DB.Count;
+            DB.Execute("sproc_tblOrder_SelectAll");
+            RecordCount = DB.Count;
+            mOrderList = new List<clsOrder>();
             //while there are records to process
             while (Index < RecordCount)
             {
@@ -106,6 +113,13 @@ namespace ClassLibrary
             //DB.AddParameter("@Active", mThisOrder.Active);
             DB.Execute("sproc_tblOrder_Delete");
 
+        }
+        public void ReportByProductName(string ProductName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductName", ProductName);
+            DB.Execute("sproc_tblOrder_FilterByProductName");
+            PopulateArray(DB);
         }
     }
 }
