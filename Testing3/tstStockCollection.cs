@@ -98,5 +98,25 @@ namespace Testing3
             clsStockCollection AllProducts = new clsStockCollection();
             Assert.AreEqual(AllProducts.Count, 2);
         }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+
+            TestItem.ProductName = "Nike";
+            TestItem.ProductNo = 1;
+            TestItem.QuantityOrdered = 1;
+            TestItem.QuantityInStock = 1;
+            TestItem.Price = 1;
+            TestItem.Date = DateTime.Now.Date;
+            Int32 PrimaryKey = 1;
+            AllProducts.ThisProduct = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem);
+
+        }
     }
 }

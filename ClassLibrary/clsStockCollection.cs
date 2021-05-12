@@ -23,7 +23,7 @@ namespace ClassLibrary
             //while there are records to process
             while (Index < RecordCount)
             {
-                //create blank address
+                //create blank QuantityInStock
                 clsStock StockManagement = new clsStock();
                 //read in the fields from the current record
                 StockManagement.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
@@ -39,6 +39,8 @@ namespace ClassLibrary
             }
         }
         List<clsStock> ProductList = new List<clsStock>();
+        private clsStock mThisProduct;
+
         public List<clsStock> mProductList
         {
             get
@@ -61,6 +63,45 @@ namespace ClassLibrary
 
             }
         }
-        public clsStock ThisProduct { get; set; }
+        public clsStock ThisProduct
+        {
+            get
+            {
+                return mThisProduct;
+            }
+            set
+            {
+                mThisProduct = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductName", mThisProduct.ProductName);
+            DB.AddParameter("@Price", mThisProduct.Price);
+            DB.AddParameter("@ProductNo", mThisProduct.ProductNo);
+            DB.AddParameter("@Date", mThisProduct.Date);
+            DB.AddParameter("@QuantityOrdered", mThisProduct.QuantityOrdered);
+            DB.AddParameter("@QuantityInStock", mThisProduct.QuantityInStock);
+            return DB.Execute("sproc_tblStock_Insert");
+
+
+
+        }
+        public int Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ProductName", mThisProduct.ProductName);
+            DB.AddParameter("@QuantityInStock", mThisProduct.QuantityInStock);
+            DB.AddParameter("@Price", mThisProduct.Price);
+            DB.AddParameter("@ProductNo", mThisProduct.ProductNo);
+            DB.AddParameter("@Date", mThisProduct.Date);
+            DB.AddParameter("@QuantityOrdered", mThisProduct.QuantityOrdered);
+            return DB.Execute("sproc_tblStock_Update");
+
+
+        }
     }
 }
