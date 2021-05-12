@@ -111,6 +111,11 @@ namespace ClassLibrary
             }
         }
 
+        public string Valid(object productName, object quantityInStock, object price, int productNo, object date, object quantityOrdered)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Valid(string productName, string productNo, string price, string quantityInStock, string date, string quantityOrdered)
         {
             return "";

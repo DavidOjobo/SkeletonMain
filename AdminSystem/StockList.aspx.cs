@@ -19,9 +19,16 @@ public partial class _1_List : System.Web.UI.Page
     void DisplayStock()
     {
         ClassLibrary.clsStockCollection AllProducts = new ClassLibrary.clsStockCollection();
-        lstStockList.DataSource = AllProducts.ProductList;
+        lstStockList.DataSource = AllProducts.mProductList;
         lstStockList.DataValueField = "ProductNo";
         lstStockList.DataTextField = "ProductName";
         lstStockList.DataBind();
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session["ProductNo"] = -1;
+        Response.Redirect("StockDataEntry.aspx");
+
     }
 }

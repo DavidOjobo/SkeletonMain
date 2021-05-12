@@ -17,24 +17,76 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             if (ProductNo != -1)
             {
-                DisplayCustomers();
+                DisplayProduct();
             }
 
         }
 
     }
 
-    private void DisplayCustomers()
+    private void DisplayProduct()
     {
-        throw new NotImplementedException();
+        clsStockCollection ProductList = new clsStockCollection();
+        ProductList.ThisProduct.Find(ProductNo);
+        //txtProductNo.Text = ProductList.ThisProduct.ProductNo.ToString();
+        txtProductName.Text = ProductList.ThisProduct.ProductName;
+        txtProductNo.Text = ProductList.ThisProduct.ProductNo.ToString();
+        txtPrice.Text = ProductList.ThisProduct.Price.ToString();
+        txtQuantityInStock.Text = ProductList.ThisProduct.QuantityInStock.ToString();
+        txtQuantityOrdered.Text = ProductList.ThisProduct.QuantityOrdered.ToString();
+        txtDate.Text = ProductList.ThisProduct.Date.ToString("MM/dd/yyyy");
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
         clsStock StockManagement = new clsStock();
-        StockManagement.ProductName = txtProductName.Text;
-        Session["StockManagement"] = StockManagement;
-        Response.Redirect("StockViewer.aspx");
+        //create a new instance of clsStock
+        Int32 ProductNo;
+        double Price;
+        DateTime Date;
+        int QuantityInStock;
+        int QuantityOrdered;
+        ProductNo = Convert.ToInt32(txtProductNo.Text);
+        string ProductName = txtProductName.Text;
+        Price = Convert.ToDouble(txtPrice.Text);
+        QuantityInStock = Convert.ToInt32(txtQuantityInStock.Text);
+        QuantityOrdered = Convert.ToInt32(txtQuantityOrdered.Text);
+        Date = Convert.ToDateTime(txtDate.Text);
+
+        string Error = "";
+        //validate the data
+        Error = StockManagement.Valid(ProductName, QuantityInStock, Price, ProductNo, Date, QuantityOrdered);
+        if (Error == "")
+        {
+
+            txtProductNo.Text = StockManagement.ProductNo.ToString();
+            txtPrice.Text = StockManagement.Price.ToString();
+            txtQuantityOrdered.Text = StockManagement.QuantityOrdered.ToString();
+            txtDate.Text = StockManagement.Date.ToString();
+            txtProductName.Text = StockManagement.ProductName;
+            txtQuantityOrdered.Text = StockManagement.QuantityInStock.ToString();
+            clsStockCollection ProductList = new clsStockCollection();
+
+            if (ProductNo == -1)
+            {
+                ProductList.ThisProduct = StockManagement;
+                ProductList.Add();
+            }
+
+            else
+            {
+                ProductList.ThisProduct.Find(ProductNo);
+                ProductList.ThisProduct = StockManagement;
+                ProductList.Update();
+            }
+
+            Response.Redirect("ProductList.aspx");
+
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
