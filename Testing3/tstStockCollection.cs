@@ -27,10 +27,10 @@ namespace Testing3
             //create item of test data
             clsStock TestItem = new clsStock();
             //set its properties
-            TestItem.Price = 1.00;
+            TestItem.Price = 1;
             TestItem.ProductNo = 1;
             TestItem.QuantityInStock = 1;
-             
+
             TestItem.Date = DateTime.Now.Date;
             TestItem.ProductName = "Nike";
             //add item to the test list
@@ -56,7 +56,7 @@ namespace Testing3
             //create item of test data
             clsStock TestProduct = new clsStock();
             //set its properties
-            TestProduct.Price = 1.00;
+            TestProduct.Price = 1;
             TestProduct.ProductNo = 1;
             TestProduct.QuantityOrdered = 1;
             TestProduct.QuantityInStock = 1;
@@ -79,7 +79,7 @@ namespace Testing3
             clsStock TestItem = new clsStock();
             //set its properties
             TestItem.ProductNo = 1;
-            TestItem.Price = 1.00;
+            TestItem.Price = 1;
             TestItem.QuantityOrdered = 1;
             TestItem.QuantityInStock = 1;
             TestItem.Date = DateTime.Now.Date;
@@ -118,5 +118,91 @@ namespace Testing3
             Assert.AreEqual(AllProducts.ThisProduct, TestItem);
 
         }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 1;
+            TestItem.ProductNo = 1;
+            TestItem.ProductName = "Nike";
+            TestItem.QuantityOrdered = 1;
+            TestItem.QuantityInStock = 1;
+            TestItem.Price = 1;
+            TestItem.Date = DateTime.Now.Date;
+            AllProducts.ThisProduct = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            //modify test data
+            TestItem.ProductNo = 2;
+            TestItem.ProductName = "Adidas";
+            TestItem.QuantityOrdered = 2;
+            TestItem.QuantityInStock = 2;
+            TestItem.Price = 1;
+            TestItem.Date = DateTime.Now.Date;
+            AllProducts.ThisProduct = TestItem;
+            AllProducts.Update();
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem);
+        }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 1;
+            TestItem.ProductNo = 1;
+            TestItem.ProductName = "Nike";
+            TestItem.QuantityOrdered = 1;
+            TestItem.QuantityInStock = 1;
+            TestItem.Price = 1;
+            TestItem.Date = DateTime.Now.Date;
+            AllProducts.ThisProduct = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            AllProducts.ThisProduct = TestItem;
+            AllProducts.Delete();
+            Boolean Found= AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+
+
+        }
+        [TestMethod]
+
+        public void ReportByProductNoOK()
+        {
+            //filters the record using the Full Name
+
+            clsStockCollection FilteredProducts = new clsStockCollection();
+            FilteredProducts.ReportByProductNo("XXX XXX");
+            Assert.AreEqual(0, FilteredProducts.Count);
+        }
+
+        [TestMethod]
+        public void ReportByProductNoTestDataFound()
+        {
+            clsStockCollection FilteredProducts = new clsStockCollection();
+            Boolean OK = true;
+            FilteredProducts.ReportByProductNo("XXX XXX");
+            if (FilteredProducts.Count == 1)
+            {
+                if (FilteredProducts.mProductList[1].ProductNo != 1)
+                {
+                    OK = false;
+                }
+                if (FilteredProducts.mProductList[2].ProductNo != 6)
+                {
+                    OK = false;
+
+                }
+                else
+                {
+                    OK = false;
+                }
+                Assert.IsTrue(OK);
+            }
+        }
+
     }
 }

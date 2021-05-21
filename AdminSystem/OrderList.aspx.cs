@@ -67,15 +67,15 @@ public partial class _1_List : System.Web.UI.Page
         }
     }
 
-    protected void btnApply_Click(object sender,EventArgs e)
-        {
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
         clsOrdersCollection Orders = new clsOrdersCollection();
         Orders.ReportByProductName(txtFilter.Text);
         lstOrderList.DataSource = Orders.OrderList;
         lstOrderList.DataValueField = "OrderNo";
         lstOrderList.DataTextField = "ProductName";
         lstOrderList.DataBind();
-        }
+    }
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
@@ -87,6 +87,7 @@ public partial class _1_List : System.Web.UI.Page
         lstOrderList.DataBind();
     }
 }
+   
 
 
 
