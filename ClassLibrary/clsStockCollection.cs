@@ -11,16 +11,22 @@ namespace ClassLibrary
 
         public clsStockCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_tblStock_SelectAll");
-            //get the count of records
+            PopulateArray(DB);
+        
+
+
+         }
+        public void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount = 0;
             RecordCount = DB.Count;
+            mProductList = new List<clsStock>();
+
             //while there are records to process
             while (Index < RecordCount)
             {
@@ -30,15 +36,18 @@ namespace ClassLibrary
                 StockManagement.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
                 StockManagement.ProductNo = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductNo"]);
                 StockManagement.QuantityOrdered = Convert.ToInt32(DB.DataTable.Rows[Index]["QuantityOrdered"]);
-           ;    StockManagement.QuantityInStock = Convert.ToInt32(DB.DataTable.Rows[Index]["QuantityInStock"]);
+                StockManagement.QuantityInStock = Convert.ToInt32(DB.DataTable.Rows[Index]["QuantityInStock"]);
                 StockManagement.Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Date"]);
                 StockManagement.ProductName = Convert.ToString(DB.DataTable.Rows[Index]["ProductName"]);
                 //add the record to the private data member
                 mProductList.Add(StockManagement);
                 //point at the next record
                 Index++;
+
             }
+
         }
+
         List<clsStock> ProductList = new List<clsStock>();
         private clsStock mThisProduct;
 
@@ -53,6 +62,12 @@ namespace ClassLibrary
                 mProductList = value;
             }
         }
+
+        public void ReportByProductNo(object text)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Count
         {
             get
@@ -112,5 +127,18 @@ namespace ClassLibrary
             DB.Execute("sproc_tblStock_Delete");
 
         }
+        public void ReportByProductNo(string ProductNo)
+        {
+            //Filters the record based on Full or Partial name
+            //Connects to the database
+            clsDataConnection DB = new clsDataConnection();
+            //Send the Full Name parameter to the database
+            DB.AddParameter("@ProductNo", ProductNo);
+            //Execute the stored procedure
+            DB.Execute("sproc_tbl_Stock_FilterByProductNo");
+            PopulateArray(DB);
+        }
+
+       
     }
 }

@@ -26,15 +26,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     private void DisplayProduct()
     {
-        clsStockCollection ProductList = new clsStockCollection();
-        ProductList.ThisProduct.Find(ProductNo);
-        //txtProductNo.Text = ProductList.ThisProduct.ProductNo.ToString();
-        txtProductName.Text = ProductList.ThisProduct.ProductName;
-        txtProductNo.Text = ProductList.ThisProduct.ProductNo.ToString();
-        txtPrice.Text = ProductList.ThisProduct.Price.ToString();
-        txtQuantityInStock.Text = ProductList.ThisProduct.QuantityInStock.ToString();
-        txtQuantityOrdered.Text = ProductList.ThisProduct.QuantityOrdered.ToString();
-        txtDate.Text = ProductList.ThisProduct.Date.ToString("MM/dd/yyyy");
+        clsStockCollection StockList = new clsStockCollection();
+        StockList.ThisProduct.Find(ProductNo);
+        //txtProductNo.Text = StockList.ThisProduct.ProductNo.ToString();
+        txtProductName.Text = StockList.ThisProduct.ProductName;
+        txtProductNo.Text = StockList.ThisProduct.ProductNo.ToString();
+        txtPrice.Text = StockList.ThisProduct.Price.ToString();
+        txtQuantityInStock.Text = StockList.ThisProduct.QuantityInStock.ToString();
+        txtQuantityOrdered.Text = StockList.ThisProduct.QuantityOrdered.ToString();
+        txtDate.Text = StockList.ThisProduct.Date.ToString("MM/dd/yyyy");
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -65,22 +65,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtDate.Text = StockManagement.Date.ToString();
             txtProductName.Text = StockManagement.ProductName;
             txtQuantityOrdered.Text = StockManagement.QuantityInStock.ToString();
-            clsStockCollection ProductList = new clsStockCollection();
+            clsStockCollection StockList = new clsStockCollection();
 
             if (ProductNo == -1)
             {
-                ProductList.ThisProduct = StockManagement;
-                ProductList.Add();
+                StockList.ThisProduct = StockManagement;
+                StockList.Add();
             }
 
             else
             {
-                ProductList.ThisProduct.Find(ProductNo);
-                ProductList.ThisProduct = StockManagement;
-                ProductList.Update();
+                StockList.ThisProduct.Find(ProductNo);
+                StockList.ThisProduct = StockManagement;
+                StockList.Update();
             }
 
-            Response.Redirect("ProductList.aspx");
+            Response.Redirect("StockList.aspx");
 
         }
         else
@@ -105,5 +105,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtProductName.Text = StockManagement.ProductName;
             txtQuantityOrdered.Text = StockManagement.QuantityInStock.ToString();
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+
     }
 }

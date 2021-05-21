@@ -22,7 +22,7 @@
         <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Button ID="btnApply" runat="server" Text="Apply" />
+        <asp:Button ID="btnApply" runat="server" Text="Apply" OnClick="btnApply_Click1" />
 &nbsp;
         <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
     </form>

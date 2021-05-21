@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+
 using ClassLibrary;
 
 public partial class _1_List : System.Web.UI.Page
 {
     private object lstProductList;
+    
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (IsPostBack ==  false)
+        if (IsPostBack == false)
         {
             DisplayStock();
         }
@@ -68,4 +69,33 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
-}
+
+   
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+       
+        clsStockCollection Products = new clsStockCollection();
+        Products.ReportByProductNo(txtFilter.Text);
+        lstStockList.DataSource = Products.mProductList;
+        lstStockList.DataValueField = "ProductNo";
+        lstStockList.DataTextField = "ProductName";
+        lstStockList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+
+        clsStockCollection Products = new clsStockCollection();
+        Products.ReportByProductNo("");
+        txtFilter.Text = "";
+        lstStockList.DataSource = Products.mProductList;
+        lstStockList.DataValueField = "ProductNo";
+        lstStockList.DataTextField = "ProductName";
+        lstStockList.DataBind();
+
+    }   
+
+    }
+
+
