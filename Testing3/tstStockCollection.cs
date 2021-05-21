@@ -2,6 +2,7 @@
 using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using ClassLibrary;
 
 namespace Testing3
 {
@@ -30,7 +31,7 @@ namespace Testing3
             TestItem.Price = 1.00;
             TestItem.ProductNo = 1;
             TestItem.QuantityInStock = 1;
-             
+
             TestItem.Date = DateTime.Now.Date;
             TestItem.ProductName = "Nike";
             //add item to the test list
@@ -118,5 +119,91 @@ namespace Testing3
             Assert.AreEqual(AllProducts.ThisProduct, TestItem);
 
         }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 1;
+            TestItem.ProductNo = 1;
+            TestItem.ProductName = "Nike";
+            TestItem.QuantityOrdered = 1;
+            TestItem.QuantityInStock = 1;
+            TestItem.Price = 1;
+            TestItem.Date = DateTime.Now.Date;
+            AllProducts.ThisProducts = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            //modify test data
+            TestItem.ProductNo = 2;
+            TestItem.ProductName = "Adidas";
+            TestItem.QuantityOrdered = 2;
+            TestItem.QuantityInStock = 2;
+            TestItem.Price = 1;
+            TestItem.Date = DateTime.Now.Date;
+            AllProducts.ThisProducts = TestItem;
+            AllProducts.Update();
+            AllProducts.ThisProducts.Find(PrimaryKey);
+            Assert.AreEqual(AllProducts.ThisProducts, TestItem);
+        }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 1;
+            TestItem.ProductNo = 1;
+            TestItem.ProductName = "Nike";
+            TestItem.QuantityOrdered = 1;
+            TestItem.QuantityInStock = 1;
+            TestItem.Price = 1;
+            TestItem.Date = DateTime.Now.Date;
+            AllProducts.ThisProducts = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            AllProducts.ThisProducts = TestItem;
+            AllProducts.Delete();
+            Boolean Found= AllProducts.ThisProducts.Find(PrimaryKey);
+            Assert.isFalse(Found);
+
+
+        }
+        [TestMethod]
+
+        public void ReportByProductNoOK()
+        {
+            //filters the record using the Full Name
+
+            clsStockCollection FilteredProducts = new clsStockCollection();
+            FilteredProductss.ReportByProductNo("XXX XXX");
+            Assert.AreEqual(0, FilteredProductss.Count);
+        }
+
+        [TestMethod]
+        public void ReportByProductNoTestDataFound()
+        {
+            clsStockCollection FilteredProducts = new clsStockCollection();
+            Boolean OK = true;
+            FilteredProducts.ReportByProductNo("XXX XXX");
+            if (FilteredProducts.Count == 2)
+            {
+                if (FilteredProducts.StockList[1].ProductNo != 2)
+                {
+                    OK = false;
+                }
+                if (FilteredProducts.StockList[2].ProductNo != 3)
+                {
+                    OK = false;
+
+                }
+                else
+                {
+                    OK = false;
+                }
+                Assert.IsTrue(OK);
+            }
+        }
+
     }
 }

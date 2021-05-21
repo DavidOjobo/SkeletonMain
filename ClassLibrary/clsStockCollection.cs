@@ -8,6 +8,7 @@ namespace ClassLibrary
     {
         
 
+
         public clsStockCollection()
         {
             //var for the index
@@ -101,6 +102,14 @@ namespace ClassLibrary
             DB.AddParameter("@QuantityOrdered", mThisProduct.QuantityOrdered);
             return DB.Execute("sproc_tblStock_Update");
 
+
+        }
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", mThisProduct.ProductNo);
+            //DB.AddParameter("@Active", mThisProduct.Active);
+            DB.Execute("sproc_tblStock_Delete");
 
         }
     }
