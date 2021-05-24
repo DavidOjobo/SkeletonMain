@@ -88,27 +88,32 @@ namespace ClassLibrary
             return DB.Execute("sproc_tblQuality_Insert");
             
         }
-    }
 
-    public class clsOrderCollection
-    {
-        public List<clsOrder> OrderList { get; set; }
-        public int Count { get; set; }
-        public clsOrder ThisOrder { get; set; }
-
-        public void Add()
+        public void Update()
         {
-            throw new NotImplementedException();
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ProductNo", mThisProduct.ProductNo);
+            DB.AddParameter("@ProductName", mThisProduct.ProductName);
+            DB.AddParameter("@StaffID", mThisProduct.StaffID);
+            DB.AddParameter("@BatchNo", mThisProduct.BatchNo);
+            DB.AddParameter("@Grade", mThisProduct.Grade);
+            DB.AddParameter("@Date", mThisProduct.Date);
+            DB.AddParameter("@Defective", mThisProduct.Defective);
+            DB.Execute("sproc_tblQuality_Update");
+
         }
 
         public void Delete()
         {
-            throw new NotImplementedException();
-        }
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductNo", mThisProduct.ProductNo);
+            DB.Execute("sproc_tblQuality_Delete");
 
-        public void ReportByProductName(string v)
-        {
-            throw new NotImplementedException();
+
         }
     }
+
+    
+    
 }

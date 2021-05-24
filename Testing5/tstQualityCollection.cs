@@ -114,5 +114,57 @@ namespace Testing5
             Assert.AreEqual(AllProducts.ThisProduct, TestItem);
 
         }
+        [TestMethod]
+
+        public void UpdateMethodOK()
+        {
+
+            clsQualityCollection AllProducts = new clsQualityCollection();
+            clsQuality TestItem = new clsQuality();
+            Int32 PrimaryKey = 1;
+            TestItem.Defective = true;
+            TestItem.ProductName = "Blue";
+            TestItem.StaffID = 1;
+            TestItem.BatchNo = 1;
+            TestItem.Grade = 'A';
+            TestItem.Date = DateTime.Now.Date;
+            AllProducts.ThisProduct = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            //modify test data
+            TestItem.ProductName = "Red";
+            TestItem.StaffID = 2;
+            TestItem.BatchNo = 2;
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.Grade = 'C';
+            TestItem.Defective = false;
+            AllProducts.ThisProduct = TestItem;
+            AllProducts.Update();
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem);
+        }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+
+            clsQualityCollection AllProducts = new clsQualityCollection();
+            clsQuality TestItem = new clsQuality();
+            Int32 PrimaryKey = 0;
+            TestItem.Defective = true;
+            TestItem.ProductNo = 1;
+            TestItem.ProductName = "Blue";
+            TestItem.StaffID = 1;
+            TestItem.BatchNo = 1;
+            TestItem.Date = DateTime.Now.Date;
+            TestItem.Grade ='A';
+            AllProducts.ThisProduct = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductNo = PrimaryKey;
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            AllProducts.Delete();
+            Boolean Found = AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+
+        }
     }
 }
